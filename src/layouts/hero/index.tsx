@@ -12,7 +12,7 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ className }) => {
   return (
     <section className={clsx("hero", className)}>
-      <img src={backgroundImage} alt="СКО" className="bgImage" />
+      {/* <img src={backgroundImage} alt="СКО" className="bgImage" /> */}
       <Container>
         <h1 className="hero__title">ИНВЕСТИРУЙТЕ В СЕВЕРО КАЗАХСТАНСКУЮ ОБЛАСТЬ</h1>
       </Container>

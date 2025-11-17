@@ -1,6 +1,5 @@
 .hero {
-  height: 100vh;
-
+height: 100vh;
   .hero__title {
     color: var(--color-white);
   }
@@ -14,4 +13,6 @@
     object-fit: cover;
     z-index: -1;
   }
+
+  background-image: url('./../../assets/images/background/back.png');
 }

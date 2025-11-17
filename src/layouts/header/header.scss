@@ -3,6 +3,8 @@
   top: 0;
   background-color: transparent;
   color: var(--color-white);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
 
   &__UP {
     display: flex;
@@ -66,4 +68,8 @@
       gap: 5px;
     }
   }
+}
+
+.header.scrolled{
+    background-color: var(--color-darkBlue);
 }
