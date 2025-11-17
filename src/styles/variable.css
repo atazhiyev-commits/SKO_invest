@@ -1,0 +1,23 @@
+:root {
+  --color-darkBlue: #003366;
+  --color-lightBlue: #60b6e3;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #9f9f9f;
+
+  --title-size: 32px;
+  --title-color: var(--color-black);
+  --title-weight: 700;
+}
+
+.title-section{
+    font-size: var(--title-size);
+    font-weight: var(--title-weight);
+    color: var(--color-black);
+}
+
+.header-item{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-white);
+}

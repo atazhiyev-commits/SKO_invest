@@ -1,9 +1,12 @@
 import { BrowserRouter } from "react-router";
 
+import "./../styles/global.css"
+import Header from "../layouts/header";
+
 const App = () => {
   return (
     <BrowserRouter>
-      <h1>Invest SKO</h1>
+      <Header />
     </BrowserRouter>
   );
 };

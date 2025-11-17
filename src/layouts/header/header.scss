@@ -1,0 +1,67 @@
+.header {
+  background-color: var(--color-darkBlue);
+  color: var(--color-white);
+
+  &__UP {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  &__DOWN {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  &__line {
+    border-bottom: 1px solid var(--color-gray);
+  }
+
+  &__search {
+    width: 270px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    &-menuList {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin-right: 40px;
+    }
+
+    &-socMedia {
+      list-style: none;
+      display: flex;
+      gap: 6px;
+    }
+
+    &-global_setting {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-left: 40px;
+
+      .eyes {
+        color: var(--color-white);
+      }
+    }
+  }
+  &__logo {
+    &-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}
