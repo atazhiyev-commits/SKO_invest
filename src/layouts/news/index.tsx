@@ -21,7 +21,7 @@ const News: React.FC<NewsProps> = ({ className }) => {
             Показать все новости
           </Link>
         </header>
-        <div className="news__content">
+        {/* <div className="news__content">
           {testNews.map((newsItem, index: number) => {
             return index <= 1 ? (
               <Link to={"/link"}>
@@ -43,7 +43,7 @@ const News: React.FC<NewsProps> = ({ className }) => {
               </Link>
             );
           })}
-        </div>
+        </div> */}
       </Container>
     </section>
   );

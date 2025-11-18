@@ -8,6 +8,8 @@
   --title-size: 32px;
   --title-color: var(--color-black);
   --title-weight: 700;
+
+  --media-tablet: 992px;
 }
 
 .title-section {
@@ -35,4 +37,12 @@
   &:hover {
     background-color: var(--color-lightBlue);
   }
+}
+
+@media screen and (max-width: 992px) {
+  
+}
+
+@media screen and (max-width: 650px) {
+  
 }

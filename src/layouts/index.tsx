@@ -8,7 +8,7 @@ const Layouts = () => {
   return (
     <div className="layouts">
       <Header />
-      <Hero />
+      {/* <Hero /> */}
       <News />
     </div>
   );

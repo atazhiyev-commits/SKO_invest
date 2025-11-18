@@ -4,6 +4,7 @@ import HeaderUp from "./HeaderUp";
 import HeaderDown from "./HeaderDown";
 
 import "./header.scss";
+import Container from "../../components/container/Container";
 
 interface HeaderProps {
   className?: string;
@@ -17,9 +18,10 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 
   return (
     <header className={clsx("header", className)}>
-      <HeaderUp />
-      <div className="header__line" />
-      <HeaderDown />
+      <Container>
+        <HeaderUp />
+        <HeaderDown />
+      </Container>
     </header>
   );
 };

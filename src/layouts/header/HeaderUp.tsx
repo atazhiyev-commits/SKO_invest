@@ -1,17 +1,17 @@
 import Container from '../../components/container/Container';
 import { Link } from "react-router";
 
-import { Eye, FacebookIcon, Instagram, Send } from "lucide-react";
+import { ChevronDown, Eye, FacebookIcon, Instagram, Menu, Send } from "lucide-react";
 import logo from "./../../assets/images/logo/logo.svg"
 
 import './header.scss';
 
 const HeaderUp = () => {
   return (
-    <Container className="header__UP">
-        <div className="search">
+    <div className="header__UP">
+        <div className="header__search">
           <input
-          className="header__search"
+          className="search__input"
             type="search"
             name="search_SKO"
             id="searchSKO"
@@ -20,34 +20,39 @@ const HeaderUp = () => {
         </div>
 
         <nav className="header__nav">
+            <Menu className='header__nav-burger' size={32}/>
             <ul className="header__nav-menuList">
-                <li className="header__nav-item header-item"><a className="item_link" href="#">О регионе</a></li>
-                <li className="header__nav-item header-item"><a className="item_link" href="#">Как мы помогаем</a></li>
-                <li className="header__nav-item header-item"><a className="item_link" href="#">Защита инвесторов</a></li>
-                <li className="header__nav-item header-item"><a className="item_link" href="#">Контакты</a></li>
+                <li className="item-li header-item"><a className="item_link" href="#">Я хочу <ChevronDown className='chevronDown' /></a></li>
+                <li className="item-li header-item"><a className="item_link" href="#">Как мы помогаем</a></li>
+                <li className="item-li header-item"><a className="item_link" href="#">Защита инвесторов</a></li>
+                <li className="item-li header-item"><a className="item_link" href="#">Контакты</a></li>
             </ul>
             <ul className="header__nav-socMedia">
-                <li className="socItem"><a className="soc_link" href="https://www.facebook.com/rsk.sko/"><FacebookIcon size={20} /></a></li>
-                <li className="socItem"><a className="soc_link" href="https://www.instagram.com/sko_kz/"><Instagram size={20} /></a></li>
-                <li className="socItem"><a className="soc_link" href="https://t.me/s/skonews"><Send size={20} /></a></li>
+                <li className="socItem"><a className="soc_link" href="https://www.facebook.com/rsk.sko/"><FacebookIcon className='iconMedia' size={20} /></a></li>
+                <li className="socItem"><a className="soc_link" href="https://www.instagram.com/sko_kz/"><Instagram className='iconMedia' size={20} /></a></li>
+                <li className="socItem"><a className="soc_link" href="https://t.me/s/skonews"><Send className='iconMedia' size={20} /></a></li>
             </ul>
             <ul className="header__nav-global_setting">
                 <button className="eyes">
                     <Eye />
                 </button>
-                <div className="language">
-                    <span>RU</span>
-                </div>
+                <select name='RU' className="language">
+                    <option value="ru">RU</option>
+                    <option value="kz">KZ</option>
+                    <option value="en">EN</option>
+                    <option value="chi">CHI</option>
+                </select>
             </ul>
-        </nav>
-
-        <div className="header__logo">
+                <div className="header__logo">
             <Link to="/" className="header__logo-link">            
                 <img src={logo} alt="Logo" />
                 <span>SKO</span>
             </Link>
-        </div>
-      </Container>
+            </div>
+        </nav>
+
+
+      </div>
   )
 }
 
