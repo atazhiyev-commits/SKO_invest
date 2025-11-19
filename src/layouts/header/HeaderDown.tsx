@@ -2,8 +2,15 @@ import { listHeader } from "./list";
 import "./header.scss";
 import { Link } from "react-router";
 import { ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const HeaderDown = () => {
+  const { t } = useTranslation();
+
+  const listBottom = t("header.investGuide.headerBottom", {
+    returnObjects: true,
+  });
+  
   return (
     <div className="header__bottom">
       {listHeader.map((item, index) => (

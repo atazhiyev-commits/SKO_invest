@@ -10,12 +10,16 @@ import Typography from "@mui/material/Typography";
 import Container from "../../components/container/Container";
 
 import "./faq.scss";
-import { faqTest } from "./faq_test";
 import { useTranslation } from "react-i18next";
 
 interface faqProps {
   className?: string;
 }
+
+type faqList = {
+  question: string;
+  answer: string;
+};
 
 const FAQ: React.FC<faqProps> = ({ className }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -26,31 +30,31 @@ const FAQ: React.FC<faqProps> = ({ className }) => {
       setExpanded(isExpanded ? panel : false);
     };
 
+  const res = t("faq.list", { returnObjects: true }) as Array<faqList>;
+
   return (
     <section className={clsx("faq", className)}>
       <Container>
-        <h2 className="title-section">{t('faq.title')}</h2>
+        <h2 className="title-section">{t("faq.title")}</h2>
         <div className="faq__content">
-          {faqTest.map(
-            (item: { question: string; answer: string }, index: number) => (
-              <Accordion
-                key={index}
-                className="accordion"
-                expanded={expanded === "panel1" + index}
-                onChange={handleChange("panel1" + index)}
+          {res.map((item, index: number) => (
+            <Accordion
+              key={index}
+              className="accordion"
+              expanded={expanded === "panel1" + index}
+              onChange={handleChange("panel1" + index)}
+            >
+              <AccordionSummary
+                className="accordionSummary"
+                expandIcon={<ChevronDown />}
               >
-                <AccordionSummary
-                  className="accordionSummary"
-                  expandIcon={<ChevronDown />}
-                >
-                  <Typography>{item.question}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>{item.answer}</Typography>
-                </AccordionDetails>
-              </Accordion>
-            )
-          )}
+                <Typography>{item.question}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>{item.answer}</Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))}
         </div>
       </Container>
     </section>

@@ -6,6 +6,73 @@
         "howHelp": "How we help",
         "protectionInvest": "Investor protection",
         "contacts": "Contacts"
+      },
+
+      "investGuide": {
+        "title": "INVESTOR'S GUIDE",
+
+        "headerBottom": [
+          { "name": "Business registration" },
+          { "name": "Second-tier banks" },
+          { "name": "North Kazakhstan region hotels" },
+          { "name": "State support measures" },
+          { "name": "Land acquisition without auction" },
+          { "name": "Conclusion of an investment contract" },
+          {
+            "name": "Inclusion in the Unified Industrialization Map"
+          },
+          { "name": "Land acquisition through auction" },
+          { "name": "Obtaining technical conditions" },
+          { "name": "Connection to the power grid" },
+          {
+            "name": "Registration of property rights for the commissioned facility"
+          },
+          { "name": "Obtaining commissioning permit" },
+          { "name": "Obtaining construction permit" },
+          {
+            "name": "Technical connection to water supply and sewerage"
+          },
+          { "name": "Technical connection to heat supply" },
+          { "name": "Access to road infrastructure" },
+          {
+            "name": "Technical connection to gas distribution networks"
+          },
+          { "name": "Frequently asked questions" }
+        ]
+      },
+
+      "investment_opportunities": {
+        "title": "Investment opportunities",
+        "list": [
+          { "name": "Investment potential of the region" },
+          { "name": "Investment proposals" },
+          { "name": "Ongoing investment projects" },
+          { "name": "Completed investment projects" },
+          { "name": "Qyzyljar Special Economic Zone" },
+          { "name": "Public-private partnership" }
+        ]
+      },
+
+      "legal_acts": {
+        "title": "Legal acts",
+        "list": [
+          { "name": "Laws" },
+          { "name": "Codes" },
+          { "name": "Government resolutions of RK" },
+          { "name": "Central Government Office orders" },
+          { "name": "Akimat resolutions" }
+        ]
+      },
+
+      "about_region": {
+        "title": "About the region",
+        "list": [
+          { "name": "Region information" },
+          { "name": "Economy" },
+          { "name": "Infrastructure and tariffs" },
+          { "name": "Human resources" },
+          { "name": "Success stories" }
+        ]
       }
     },
 
@@ -18,17 +85,55 @@
       "implementProject": "Implement an investment project",
       "choicePlace": "Choose a location for project implementation"
     },
+
     "news": {
       "title": "news",
       "button": "All news",
       "otherNews": "Other news"
     },
+
     "helpers": {
-      "title": "How we help"
+      "title": "How we help",
+      "list": [
+        {
+          "name": "Free consultation on investment activities in Kazakhstan",
+          "info": "Our experts conduct a detailed analysis of investment opportunities in Kazakhstan.\nWe help:\nAssess the potential of your project\nDetermine optimal development strategies\nSelect preferential regimes and tax benefits\nPrepare a business plan for investors."
+        },
+        {
+          "name": "Support with concluding an investment contract",
+          "info": "Full support at all stages of negotiations and contract signing.\nWe help:\nAgree terms with investment authorities\nPrepare the necessary documentation\nAccelerate the approval process\nProtect the investor's interests."
+        },
+        {
+          "name": "Company registration and registration with RK authorities",
+          "info": "Fast processing of all registration documents required for company operation.\nWe help:\nRegister the company with RDIMVS\nObtain TIN and a bank account\nRegister with tax authorities\nObtain all necessary licenses."
+        },
+        {
+          "name": "Tax planning and optimization",
+          "info": "Reducing the tax burden while complying with Kazakhstan legislation.\nWe help:\nApply available tax incentives\nOptimize business structure\nObtain exemptions from import duties\nLegally minimize tax payments."
+        },
+        {
+          "name": "Tax planning and optimization",
+          "info": "Reducing the tax burden while complying with Kazakhstan legislation.\nWe help:\nApply available tax incentives\nOptimize business structure\nObtain exemptions from import duties\nLegally minimize tax payments."
+        }
+      ]
     },
 
     "faq": {
-      "title": "FAQ"
+      "title": "FAQ",
+      "list": [
+        {
+          "question": "What is the basis for obtaining a petition to issue an investor visa?",
+          "answer": "Membership of the applicant in the Council of Foreign Investors under the President of the Republic of Kazakhstan; - possession of an investment contract concluded with the authorized body for investments; - possession of recommendations from state bodies or quasi-governmental sector entities confirming the implementation of an investment project by the applicant on the territory of the Republic of Kazakhstan."
+        },
+        {
+          "question": "Visa?",
+          "answer": "Membership of the applicant in the Council of Foreign Investors under the President of the Republic of Kazakhstan; - possession of an investment contract concluded with the authorized body for investments; - possession of recommendations from state bodies or quasi-governmental sector entities confirming the implementation of an investment project by the applicant on the territory of the Republic of Kazakhstan."
+        },
+        {
+          "question": "LOL KEK 4EBUREK?",
+          "answer": "Membership of the applicant in the Council of Foreign Investors under the President of the Republic of Kazakhstan; - possession of an investment contract concluded with the authorized body for investments; - possession of recommendations from state bodies or quasi-governmental sector entities confirming the implementation of an investment project by the applicant on the territory of the Republic of Kazakhstan."
+        }
+      ]
     },
 
     "defense": {

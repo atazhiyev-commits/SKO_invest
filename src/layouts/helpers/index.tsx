@@ -12,17 +12,26 @@ interface HelperProps {
   className?: string;
 }
 
+type helpList = {
+  name: string;
+  list: string;
+};
+
 const Helper: React.FC<HelperProps> = ({ className }) => {
   const [infoText, setInfoText] = useState<any>(textHelp[0]);
   const { t } = useTranslation();
 
+  const listHelpText = t("helpers.list", {
+    returnObjects: true,
+  }) as Array<helpList>;
+
   return (
     <section className={clsx("helper", className)}>
       <Container>
-        <h2 className="title-section">{t('helpers.title')}</h2>
+        <h2 className="title-section">{t("helpers.title")}</h2>
         <div className="helper__content">
           <ul className="helper__content-list">
-            {textHelp.map((item, index: number) => (
+            {listHelpText.map((item, index: number) => (
               <li className="list_item" key={index}>
                 <BlockHelper
                   key={index}
