@@ -125,9 +125,12 @@
 
       .eyes {
         color: var(--color-white);
+        display: flex;
+        align-items: center;
       }
 
       .language {
+
         option {
           cursor: pointer;
           color: var(--color-black);

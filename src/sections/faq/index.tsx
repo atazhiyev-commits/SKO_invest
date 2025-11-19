@@ -11,6 +11,7 @@ import Container from "../../components/container/Container";
 
 import "./faq.scss";
 import { faqTest } from "./faq_test";
+import { useTranslation } from "react-i18next";
 
 interface faqProps {
   className?: string;
@@ -18,6 +19,7 @@ interface faqProps {
 
 const FAQ: React.FC<faqProps> = ({ className }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
+  const { t } = useTranslation();
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -27,7 +29,7 @@ const FAQ: React.FC<faqProps> = ({ className }) => {
   return (
     <section className={clsx("faq", className)}>
       <Container>
-        <h2 className="title-section">FAQ</h2>
+        <h2 className="title-section">{t('faq.title')}</h2>
         <div className="faq__content">
           {faqTest.map(
             (item: { question: string; answer: string }, index: number) => (

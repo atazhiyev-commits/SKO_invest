@@ -1,0 +1,62 @@
+{
+  "translation": {
+    "header": {
+      "seacrhPlaceholder": "search",
+      "headerMenu": {
+        "howHelp": "How we help",
+        "protectionInvest": "Investor protection",
+        "contacts": "Contacts"
+      }
+    },
+
+    "hero": {
+      "investSKO": "INVEST IN THE NORTH KAZAKHSTAN REGION",
+      "Iwant": "I WANT TO",
+      "rentLand": "Rent a land plot without bidding",
+      "viewSupport": "View support measures",
+      "chooseLocation": "Choose a location for project implementation",
+      "implementProject": "Implement an investment project",
+      "choicePlace": "Choose a location for project implementation"
+    },
+    "news": {
+      "title": "news",
+      "button": "All news",
+      "otherNews": "Other news"
+    },
+    "helpers": {
+      "title": "How we help"
+    },
+
+    "faq": {
+      "title": "FAQ"
+    },
+
+    "defense": {
+      "title": "Investor protection",
+      "button": "All legal norms"
+    },
+
+    "footer": {
+      "forInvestors": "For investors",
+      "navigate": "Site navigation",
+      "contacts": "Contacts",
+      "listInvestor": {
+        "guide": "Investor guide",
+        "opportunities": "Investment opportunities",
+        "map": "Investment map",
+        "regulations": "Regulations"
+      },
+      "listNavigate": {
+        "news": "News",
+        "sendRequest": "Send a request",
+        "defense": "Investor protection",
+        "aboutRegion": "About the region"
+      },
+      "contactItems": {
+        "homephone": "For home",
+        "phone": "For mobile",
+        "email": "Mail"
+      }
+    }
+  }
+}

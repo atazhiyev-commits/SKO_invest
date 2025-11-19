@@ -22,9 +22,9 @@
   &__content {
     position: relative;
     z-index: 2;
+    margin-top: 275px;
 
     .hero__title {
-      margin-top: 200px;
       color: var(--color-white);
     }
 
@@ -43,7 +43,7 @@
 
         .item-hero {
           display: inline-block;
-          
+
           a {
             display: flex;
             align-items: center;

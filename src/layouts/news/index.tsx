@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { Link } from "react-router";
 import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
@@ -9,6 +9,7 @@ import BigImg from "../../components/newsCard/BigImg";
 import SmallImg from "../../components/newsCard/SmallImg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testNews } from "./test";
+import { useTranslation } from "react-i18next";
 
 import "./news.scss";
 
@@ -20,6 +21,8 @@ const News: React.FC<NewsProps> = ({ className }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const countNews = 3;
   const sizeIcon = 48;
+
+  const { t } = useTranslation();
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -33,11 +36,12 @@ const News: React.FC<NewsProps> = ({ className }) => {
     <section className={clsx("news", className)}>
       <Container>
         <header className="news__header">
-          <h2 className="title-section">Новости</h2>
+          <h2 className="title-section">{t("news.title")}</h2>
           <Link to={"/news"} className="btn-section">
-            Показать все новости
+            {t("news.button")}
           </Link>
         </header>
+
         <div className="news__content">
           <div className="embla" ref={emblaRef}>
             <div className="embla__container">
@@ -64,7 +68,7 @@ const News: React.FC<NewsProps> = ({ className }) => {
             </div>
           </div>
           <div className="news__other">
-            <h2 className="second-title-section">Другие новости: </h2>
+            <h2 className="second-title-section"> {t("news.otherNews")}: </h2>
             <div className="news__other-content">
               {testNews.slice(countNews).map((newsItem, index) => (
                 <Link to={"/link"} key={index} className="news__small-wrapper">
