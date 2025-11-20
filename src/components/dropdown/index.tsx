@@ -1,23 +1,29 @@
-import clsx from "clsx";
-import { ChevronDown } from "lucide-react";
-import { FC } from "react";
+import { type FC } from "react";
 import { Link } from "react-router";
+import clsx from "clsx";
+
+import "./dropDown.scss";
 
 interface Props {
-  nameDrop: string;
-  children: React.ReactNode;
+  list: any;
+  nameDrop?: string;
+  children?: React.ReactNode;
   className?: string;
 }
 
-const Index: FC<Props> = ({ nameDrop, children, className }) => {
+const DropDown: FC<Props> = ({ list, children, className }) => {
   return (
     <div className={clsx("dropDown", className)}>
-      <Link to={"/"}>
-        {nameDrop} <ChevronDown className="chevronDown" size={18} />
-      </Link>
-      {children}
+      <div className="dropDown__content">
+        {list.map((item: { name: string; link: string }, index: number) => (
+          <Link to={item?.link} key={index} className="dropDown__content-name">
+            {item.name}
+          </Link>
+        ))}
+        {children}
+      </div>
     </div>
   );
 };
 
-export default Index;
+export default DropDown;

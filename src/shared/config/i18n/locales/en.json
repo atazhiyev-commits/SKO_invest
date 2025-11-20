@@ -8,72 +8,188 @@
         "contacts": "Contacts"
       },
 
-      "investGuide": {
-        "title": "INVESTOR'S GUIDE",
+      "headerBottom": [
+        {
+          "label": "Investor guide",
+          "list": [
+            {
+              "name": "Registration and business",
+              "link": "/business-registration",
+              "list": [
+                {
+                  "name": "Business registration",
+                  "link": "/business-registration"
+                },
+                { "name": "Second-tier banks", "link": "/banks" },
+                { "name": "Hotels in North Kazakhstan", "link": "/hotels" }
+              ]
+            },
 
-        "headerBottom": [
-          { "name": "Business registration" },
-          { "name": "Second-tier banks" },
-          { "name": "North Kazakhstan region hotels" },
-          { "name": "State support measures" },
-          { "name": "Land acquisition without auction" },
-          { "name": "Conclusion of an investment contract" },
-          {
-            "name": "Inclusion in the Unified Industrialization Map"
-          },
-          { "name": "Land acquisition through auction" },
-          { "name": "Obtaining technical conditions" },
-          { "name": "Connection to the power grid" },
-          {
-            "name": "Registration of property rights for the commissioned facility"
-          },
-          { "name": "Obtaining commissioning permit" },
-          { "name": "Obtaining construction permit" },
-          {
-            "name": "Technical connection to water supply and sewerage"
-          },
-          { "name": "Technical connection to heat supply" },
-          { "name": "Access to road infrastructure" },
-          {
-            "name": "Technical connection to gas distribution networks"
-          },
-          { "name": "Frequently asked questions" }
-        ]
-      },
+            {
+              "name": "Government support",
+              "link": "/gov-support",
+              "list": [
+                {
+                  "name": "Government support measures",
+                  "link": "/support-measures"
+                },
+                {
+                  "name": "Investment contract conclusion",
+                  "link": "/investment-contract"
+                },
+                {
+                  "name": "Inclusion in the Unified Industrialization Map",
+                  "link": "/industrialization-map"
+                }
+              ]
+            },
 
-      "investment_opportunities": {
-        "title": "Investment opportunities",
-        "list": [
-          { "name": "Investment potential of the region" },
-          { "name": "Investment proposals" },
-          { "name": "Ongoing investment projects" },
-          { "name": "Completed investment projects" },
-          { "name": "Qyzyljar Special Economic Zone" },
-          { "name": "Public-private partnership" }
-        ]
-      },
+            {
+              "name": "Land plots",
+              "link": "/land-plots",
+              "list": [
+                {
+                  "name": "Obtaining a land plot without auction",
+                  "link": "/land-without-auction"
+                },
+                {
+                  "name": "Obtaining a land plot at auction",
+                  "link": "/land-auction"
+                },
+                {
+                  "name": "Registration of property rights",
+                  "link": "/property-rights"
+                }
+              ]
+            },
 
-      "legal_acts": {
-        "title": "Legal acts",
-        "list": [
-          { "name": "Laws" },
-          { "name": "Codes" },
-          { "name": "Government resolutions of RK" },
-          { "name": "Central Government Office orders" },
-          { "name": "Akimat resolutions" }
-        ]
-      },
+            {
+              "name": "Construction and commissioning",
+              "link": "/construction",
+              "list": [
+                {
+                  "name": "Obtaining construction permit",
+                  "link": "/construction-permit"
+                },
+                {
+                  "name": "Obtaining facility commissioning permit",
+                  "link": "/operation-permit"
+                }
+              ]
+            },
 
-      "about_region": {
-        "title": "About the region",
-        "list": [
-          { "name": "Region information" },
-          { "name": "Economy" },
-          { "name": "Infrastructure and tariffs" },
-          { "name": "Human resources" },
-          { "name": "Success stories" }
-        ]
-      }
+            {
+              "name": "Technical conditions and connections",
+              "link": "/technical-conditions",
+              "list": [
+                {
+                  "name": "Obtaining technical conditions",
+                  "link": "/technical-conditions"
+                },
+                {
+                  "name": "Connection to electrical networks",
+                  "link": "/electricity-connection"
+                },
+                {
+                  "name": "Connection to water supply and sewerage",
+                  "link": "/water-connection"
+                },
+                {
+                  "name": "Connection to heat supply",
+                  "link": "/heat-connection"
+                },
+                {
+                  "name": "Connection to gas distribution networks",
+                  "link": "/gas-connection"
+                }
+              ]
+            },
+
+            {
+              "name": "Infrastructure",
+              "link": "/infrastructure",
+              "list": [
+                {
+                  "name": "Access to road infrastructure",
+                  "link": "/road-access"
+                }
+              ]
+            },
+
+            {
+              "name": "FAQ",
+              "link": "/faq"
+            }
+          ]
+        },
+
+        {
+          "label": "Investment opportunities",
+          "link": "/investment-opportunities",
+          "list": [
+            {
+              "name": "Investment potential of the region",
+              "link": "/investment-potential-region"
+            },
+            {
+              "name": "Investment proposals",
+              "link": "/investment-offers"
+            },
+            {
+              "name": "Ongoing investment projects",
+              "link": "/ongoing-projects"
+            },
+            {
+              "name": "Completed investment projects",
+              "link": "/completed-projects"
+            },
+            {
+              "name": "Special Economic Zone Qyzyljar",
+              "link": "/special-economic-zone-qyzyljar"
+            },
+            {
+              "name": "Public-private partnership",
+              "link": "/public-private-partnership"
+            }
+          ]
+        },
+
+        {
+          "label": "Regulatory legal acts",
+          "link": "/regulatory-acts",
+          "list": [
+            { "name": "Laws", "link": "/laws" },
+            { "name": "Codes", "link": "/codes" },
+            {
+              "name": "Government resolutions of the RK",
+              "link": "/government-resolutions"
+            },
+            {
+              "name": "Orders of the Central Government Office",
+              "link": "/cgo-orders"
+            },
+            {
+              "name": "Resolutions of the Akimat",
+              "link": "/akimat-resolutions"
+            }
+          ]
+        },
+
+        {
+          "label": "About the region",
+          "link": "/about-region",
+          "list": [
+            { "name": "Information about the region", "link": "/region-info" },
+            { "name": "Economy", "link": "/economy" },
+            {
+              "name": "Infrastructure and tariffs",
+              "link": "/infrastructure-and-tariffs"
+            },
+            { "name": "Human resources", "link": "/human-resources" },
+            { "name": "Success stories", "link": "/success-stories" }
+          ]
+        }
+      ]
     },
 
     "hero": {

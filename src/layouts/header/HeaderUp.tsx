@@ -8,7 +8,8 @@ import './header.scss';
 import { useTranslation } from "react-i18next";
 
 const HeaderUp = () => {
-    const {t} = useTranslation();
+const {t} = useTranslation();
+
   return (
     <div className="header__UP">
         <div className="header__search">
