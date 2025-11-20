@@ -91,6 +91,13 @@
     &-menuList {
       display: flex;
       gap: 20px;
+
+      a {
+        transition: all 0.3s ease;
+        &:hover {
+          color: var(--color-lightBlue);
+        }
+      }
     }
   }
 

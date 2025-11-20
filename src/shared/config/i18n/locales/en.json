@@ -11,6 +11,7 @@
       "headerBottom": [
         {
           "label": "Investor guide",
+          "link": "/investor-guide",
           "list": [
             {
               "name": "Registration and business",
@@ -195,11 +196,28 @@
     "hero": {
       "investSKO": "INVEST IN THE NORTH KAZAKHSTAN REGION",
       "Iwant": "I WANT TO",
-      "rentLand": "Rent a land plot without bidding",
-      "viewSupport": "View support measures",
-      "chooseLocation": "Choose a location for project implementation",
-      "implementProject": "Implement an investment project",
-      "choicePlace": "Choose a location for project implementation"
+      "list": [
+        {
+          "name": "Rent a land plot without bidding",
+          "link": "/land-without-auction"
+        },
+        {
+          "name": "View support measures",
+          "link": "/support-measures"
+        },
+        {
+          "name": "Choose a location for project implementation",
+          "link": "/ongoing-projects"
+        },
+        {
+          "name": "Implement an investment project",
+          "link": "/ongoing-projects"
+        },
+        {
+          "name": "Choose a location for project implementation",
+          "link": "/ongoing-projects"
+        }
+      ]
     },
 
     "news": {

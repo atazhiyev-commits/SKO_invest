@@ -8,15 +8,22 @@ interface Props {
 
 const LanguageSwitcher: FC<Props> = ({ className }) => {
   const navigate = useNavigate();
-  const locate = useLocation().pathname.split('/').pop();
+  const location = useLocation();
+
+  const segments = location.pathname.split("/").filter(Boolean);
+  const currentLang = segments[0];
+  const restPath = segments.slice(1).join("/");
 
   return (
     <select
       name="lang"
-      value={locate}
+      value={currentLang}
       className={clsx("language", className)}
       onChange={(e) => {
-        navigate("/" + e.target.value);
+        const newLang = e.target.value;
+        const newUrl = `/${newLang}/${restPath}`;
+
+        navigate(newUrl);
         window.location.reload();
       }}
     >

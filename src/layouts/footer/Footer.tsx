@@ -10,12 +10,15 @@ import gerb from "./../../assets/images/logo/gerb.svg";
 import { Facebook, Instagram, Send } from "lucide-react";
 
 import "./footer.scss";
+import { useLG } from "../../app/lg";
 
 interface Props {
   className?: string;
 }
 
 const Footer: FC<Props> = ({ className }) => {
+  const lang = useLG.lang;
+
   const { t } = useTranslation();
   return (
     <footer className={clsx("footer", className)}>
@@ -24,7 +27,7 @@ const Footer: FC<Props> = ({ className }) => {
           <div className="footer__icons">
             <div className="iconGlav">
               <div className="gerb">
-                <Link to={"https://primeminister.kz/"}>
+                <Link to={lang + "https://primeminister.kz/"}>
                   <img src={gerb} alt="Герб" />
                 </Link>
               </div>
@@ -51,22 +54,22 @@ const Footer: FC<Props> = ({ className }) => {
             <h2 className="title-footer">{t("footer.forInvestors")}</h2>
             <nav className="footer__menu-list">
               <li className="menu-item">
-                <Link to={"/investor-guide"}>
+                <Link to={lang + "/investor-guide"}>
                   {t("footer.listInvestor.guide")}
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to={"/investment-opportunities"}>
+                <Link to={lang + "/investment-opportunities"}>
                   {t("footer.listInvestor.opportunities")}
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to={"/investment-map"}>
+                <Link to={lang + "/investment-map"}>
                   {t("footer.listInvestor.map")}
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to={"/regulations"}>
+                <Link to={lang + "/regulations"}>
                   {t("footer.listInvestor.regulations")}
                 </Link>
               </li>
@@ -78,24 +81,27 @@ const Footer: FC<Props> = ({ className }) => {
             <nav className="footer__navigation-list">
               <ul className="footer__navigation-list">
                 <li className="item-list">
-                  <a href="/news" className="item_link">
+                  <Link to={lang + "/news"} className="item_link">
                     {t("footer.listNavigate.news")}
-                  </a>
+                  </Link>
                 </li>
                 <li className="item-list">
-                  <a href="/send-request" className="item_link">
+                  <Link to={lang + "/send-request"} className="item_link">
                     {t("footer.listNavigate.sendRequest")}
-                  </a>
+                  </Link>
                 </li>
                 <li className="item-list">
-                  <a href="/investor-protection" className="item_link">
+                  <Link
+                    to={lang + "/investor-protection"}
+                    className="item_link"
+                  >
                     {t("footer.listNavigate.defense")}
-                  </a>
+                  </Link>
                 </li>
                 <li className="item-list">
-                  <a href="/about-region" className="item_link">
+                  <Link to={lang + "/about-region"} className="item_link">
                     {t("footer.listNavigate.aboutRegion")}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

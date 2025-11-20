@@ -37,15 +37,16 @@
 
       .hero__ul {
         margin-top: 22px;
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
 
         .item-hero {
-          display: inline-block;
+          color: white;
+          display: flex;
 
           a {
-            display: flex;
+            display: inline-block;
             align-items: center;
             color: white;
             text-decoration: underline;

@@ -10,7 +10,7 @@ const resources = {
   en: en,
   kz: kz,
   ru: ru,
-}
+};
 
 i18n
   .use(LanguageDetector)
