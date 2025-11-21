@@ -1,0 +1,21 @@
+import Layouts from "../layouts";
+import Catalog from "../layouts/catalog";
+import News from "../pages/news";
+
+export const routeList = [
+  {
+    path: "/:lang",
+    element: Layouts,
+  },
+  {
+    path: "/:lang/news",
+    element: News,
+  },
+  //   {
+  //     path: "/faq",
+  //   },
+  {
+    path: "/:lang/catalog/*",
+    element: Catalog,
+  },
+];
