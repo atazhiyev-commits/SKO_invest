@@ -8,6 +8,7 @@ import Defense from "../sections/defense";
 import Footer from "./footer";
 
 import "./layouts.scss";
+import Catalog from "./catalog";
 
 const Layouts = () => {
   return (
@@ -19,6 +20,8 @@ const Layouts = () => {
         <Helper />
         <FAQ />
         <Defense />
+
+        {/* <Catalog /> */}
       </main>
       <Footer />
     </div>

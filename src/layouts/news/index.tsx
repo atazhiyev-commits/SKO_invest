@@ -2,17 +2,18 @@ import { useCallback } from "react";
 import { Link } from "react-router";
 import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
-
-import Container from "../../components/container/Container";
-
-import BigImg from "../../components/newsCard/BigImg";
-import SmallImg from "../../components/newsCard/SmallImg";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { testNews } from "./test";
 import { useTranslation } from "react-i18next";
 
-import "./news.scss";
+import Container from "../../components/container/Container";
+import BigImg from "../../components/newsCard/BigImg";
+import SmallImg from "../../components/newsCard/SmallImg";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { testNews } from "./test";
+
 import { useLG } from "../../app/lg";
+
+import "./news.scss";
 
 interface NewsProps {
   className?: string;

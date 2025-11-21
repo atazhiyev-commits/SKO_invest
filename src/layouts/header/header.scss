@@ -1,7 +1,9 @@
 .header {
   position: fixed;
+  min-height: 107px;
   width: 100%;
   top: 0;
+  left: 0;
   background-color: transparent;
   color: var(--color-white);
   transition: background-color 0.3s ease;

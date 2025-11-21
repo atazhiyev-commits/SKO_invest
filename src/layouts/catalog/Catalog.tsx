@@ -1,18 +1,40 @@
 import type { FC } from "react";
 import clsx from "clsx";
-import { Container } from "lucide-react";
+import Container from "../../components/container/Container";
+import ButtonAside from "../../components/asideBtn";
+
+import "./catalog.scss";
 
 interface Props {
+  pageName?: string;
   className?: string;
-  children?: React.ReactNode;
 }
 
-const Catalog: FC<Props> = ({ children, className }) => {
+const Catalog: FC<Props> = ({ pageName, className }) => {
   return (
     <section className={clsx("catalog", className)}>
+      <div className="catalog__head">
+        <Container className="catalog__head-container">
+          <div className="breadcrumb">
+            <p>Breadcrumb {">"} page</p>
+          </div>
+          <h2 className="title-section catalog__head-title">{pageName}</h2>
+        </Container>
+      </div>
+
       <Container>
-        <h2 className="title-section">Catalog</h2>
-        {children}
+        <div className="catalog__content">
+          <aside className="catalog__content-aside">
+            <ButtonAside name="Регистрация" />
+            <ButtonAside name="Регистрация" />
+            <ButtonAside name="Регистрация" />
+          </aside>
+          <div className="catalog__content-info">
+            <div className="content">
+              <h2>Каталог</h2>
+            </div>
+          </div>
+        </div>
       </Container>
     </section>
   );

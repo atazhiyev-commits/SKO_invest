@@ -6,6 +6,7 @@ import type { headerList } from "../header/HeaderDown";
 
 import { useLG } from "../../app/lg";
 import { ChevronRight } from "lucide-react";
+import img from "./../../assets/images/background/back.png";
 
 import "./hero.scss";
 
@@ -21,6 +22,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
   return (
     <section className={clsx("hero", className)}>
+      <img src={img} alt="bgimg" className="hero__bg" />
       <Container>
         <div className="hero__content">
           <h1 className="hero__title">{t("hero.investSKO")}</h1>
