@@ -6,14 +6,13 @@ import Helper from "./helpers";
 import FAQ from "../sections/faq";
 import Defense from "../sections/defense";
 import Footer from "./footer";
+import Catalog from "./catalog";
 
 import "./layouts.scss";
-import Catalog from "./catalog";
 
 const Layouts = () => {
   return (
     <div className="layouts">
-      <Header />
       <main className="main">
         <Hero />
         <News />
@@ -21,9 +20,8 @@ const Layouts = () => {
         <FAQ />
         <Defense />
 
-        {/* <Catalog /> */}
+        <Catalog />
       </main>
-      <Footer />
     </div>
   );
 };

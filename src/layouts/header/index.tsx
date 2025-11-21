@@ -5,18 +5,36 @@ import HeaderDown from "./HeaderDown";
 import Container from "../../components/container/Container";
 
 import "./header.scss";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 interface HeaderProps {
   className?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
-  window.addEventListener("scroll", () => {
+  const location = useLocation();
+
+  useEffect(() => {
     const header = document.querySelector(".header");
-    if (header) {
-      header.classList.toggle("scrolled", window.scrollY > 0);
-    }
-  });
+    if (!header) return;
+
+    const segments = location.pathname.split("/").filter(Boolean);
+    const isRoot = segments.length === 1;
+
+    const applyState = () => {
+      if (!isRoot) {
+        header.classList.add("blue");
+      } else {
+        header.classList.toggle("blue", window.scrollY > 20);
+      }
+    };
+
+    applyState();
+
+    window.addEventListener("scroll", applyState);
+    return () => window.removeEventListener("scroll", applyState);
+  }, [location.pathname]);
 
   return (
     <header className={clsx("header", className)}>

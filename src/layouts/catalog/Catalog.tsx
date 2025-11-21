@@ -25,13 +25,13 @@ const Catalog: FC<Props> = ({ pageName, className }) => {
       <Container>
         <div className="catalog__content">
           <aside className="catalog__content-aside">
-            <ButtonAside name="Регистрация" />
-            <ButtonAside name="Регистрация" />
-            <ButtonAside name="Регистрация" />
+            <ButtonAside name="Регистрация бизнеса" />
+            <ButtonAside name="Банки второго уровня" />
+            <ButtonAside name="Гостиницы СКО" />
           </aside>
           <div className="catalog__content-info">
             <div className="content">
-              <h2>Каталог</h2>
+              <h2>Регистрация бизнеса</h2>
             </div>
           </div>
         </div>

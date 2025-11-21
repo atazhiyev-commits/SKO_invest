@@ -22,7 +22,7 @@
       width: 100vw;
       left: 0;
       margin-top: 55px;
-      border-bottom: 1px solid var(--color-white);
+      border-bottom: 1px solid var(--color-gray);
     }
   }
 
@@ -178,8 +178,8 @@
   }
 }
 
-.header.scrolled {
-  background-color: #003366;
+.header.blue {
+  background-color: var(--color-darkBlue);
 }
 
 @media screen and (max-width: 992px) {

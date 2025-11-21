@@ -12,7 +12,6 @@ const LanguageSwitcher: FC<Props> = ({ className }) => {
 
   const segments = location.pathname.split("/").filter(Boolean);
   const currentLang = segments !== [] ? segments[0] : "en";
-  console.log(segments)
   const restPath = segments.slice(1).join("/");
 
   return (
