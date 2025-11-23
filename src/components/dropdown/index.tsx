@@ -13,12 +13,16 @@ interface Props {
 }
 
 const DropDown: FC<Props> = ({ list, children, className }) => {
-    const lang = useLG.lang;
+  const lang = useLG.lang;
   return (
     <div className={clsx("dropDown", className)}>
       <div className="dropDown__content">
         {list.map((item: { name: string; link: string }, index: number) => (
-          <Link to={lang + item?.link} key={index} className="dropDown__content-name">
+          <Link
+            to={lang + "/catalog" + item?.link}
+            key={index}
+            className="dropDown__content-name"
+          >
             {item.name}
           </Link>
         ))}

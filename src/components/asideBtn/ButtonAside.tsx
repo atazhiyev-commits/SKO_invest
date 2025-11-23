@@ -1,6 +1,6 @@
 import { useState, type FC } from "react";
 import clsx from "clsx";
-import { Link, useLocation } from "react-router-dom"; // Проверьте, возможно у вас 'react-router'
+import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 
 import "./buttonAside.scss";
@@ -26,46 +26,40 @@ interface Props {
 const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   const [active, setActive] = useState(false);
   const [secondActive, setSecondActive] = useState<number | null>(null);
-  const location = useLocation().pathname;
 
-  // Логика переключения второго уровня (чтобы можно было и открыть, и закрыть)
   const toggleSecondLevel = (index: number) => {
     setSecondActive(secondActive === index ? null : index);
   };
 
   return (
     <div className="btnaside" data-active={active}>
-      {/* 1. ГЛАВНАЯ КНОПКА (ТРИГГЕР) */}
       <Link
-        to={activeLink}
+        to={`/ru/catalog${activeLink}`}
         className={clsx("buttonAside", className)}
-        onClick={(e) => {
-          // Если есть выпадающий список, мы не переходим по ссылке, а открываем меню
+        onClick={() => {
           if (list && list.length > 0) {
-            e.preventDefault();
             setActive(!active);
           }
         }}
       >
         <span className="buttonAside__name">
           {name}
-          {/* Показываем стрелку только если есть список */}
           {list && list.length > 0 && (
             <ChevronDown size={16} className="chevron" />
           )}
         </span>
       </Link>
 
-      {/* 2. ГЛАВНЫЙ ВЫПАДАЮЩИЙ БЛОК (Level 1) */}
-      {/* Обертка для анимации height: auto */}
       <div className="collapse-wrapper" data-open={active}>
         <ul className="second">
           {list?.map((item, index) => (
             <li key={index} className="second__li">
-              {/* Заголовок второго уровня */}
-              <div
+              <Link
+                to={`/ru/catalog${item.link}`}
                 className="item-header"
-                onClick={() => toggleSecondLevel(index)}
+                onClick={(e) => {
+                  toggleSecondLevel(index);
+                }}
               >
                 {item.name}
                 {item.list && (
@@ -76,9 +70,8 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
                     })}
                   />
                 )}
-              </div>
+              </Link>
 
-              {/* 3. ВЛОЖЕННЫЙ ВЫПАДАЮЩИЙ БЛОК (Level 2) */}
               {item.list && (
                 <div
                   className="collapse-wrapper"
@@ -87,7 +80,9 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
                   <ul className="three">
                     {item.list.map((subItem, subIndex) => (
                       <li key={subIndex} className="three__li">
-                        <Link to={subItem.link || "#"}>{subItem.name}</Link>
+                        <Link to={`/ru/catalog${item.link}${subItem.link}`}>
+                          {subItem.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>

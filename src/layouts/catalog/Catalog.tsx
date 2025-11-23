@@ -1,17 +1,15 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 import Container from "../../components/container/Container";
 import ButtonAside from "../../components/asideBtn";
-
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+import type { headerList } from "../header/HeaderDown";
 
 import "./catalog.scss";
-import type { headerList } from "../header/HeaderDown";
-import { useTranslation } from "react-i18next";
-import { ChevronDown } from "lucide-react";
+import BusinessRegistration from "../../pages/forInvestor/business-registration";
+import Banks from "../../pages/forInvestor/banks";
+import { useLocation } from "react-router";
+import { CatalogContent } from "../../pages/forInvestor/list";
 
 interface Props {
   pageName?: string;
@@ -21,16 +19,18 @@ interface Props {
 const Catalog: FC<Props> = ({ pageName, className }) => {
   const { t } = useTranslation();
 
+  const location = useLocation().pathname;
+
+  const lastPart = location
+    .split("/")
+    .filter((segment) => segment.length > 0)
+    .pop();
+
+  console.log(lastPart);
+
   const nameBottom = t("header.headerBottom", {
     returnObjects: true,
   }) as Array<headerList>;
-
-  const [expanded, setExpanded] = useState<string | false>(false);
-
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
 
   return (
     <section className={clsx("catalog", className)}>
@@ -47,12 +47,20 @@ const Catalog: FC<Props> = ({ pageName, className }) => {
         <div className="catalog__content">
           <aside className="catalog__content-aside">
             {nameBottom.map((item, index) => (
-              <ButtonAside key={index} name={item.label} activeLink={"/"} list={item.list} />
+              <ButtonAside
+                key={index}
+                name={item.label}
+                activeLink={item.link}
+                list={item.list}
+              />
             ))}
           </aside>
           <div className="catalog__content-info">
             <div className="content">
-              <h2>Регистрация бизнеса</h2>
+              {CatalogContent.map(
+                (item, index) =>
+                  item.link === lastPart && <item.element key={index} />
+              )}
             </div>
           </div>
         </div>
