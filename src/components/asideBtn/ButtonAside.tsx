@@ -23,8 +23,6 @@ const ButtonAside: FC<Props> = ({ name, activeLink, className }) => {
 
   const lastSegment = location.split("/").filter(Boolean).at(-1);
 
-
-
   return (
     <Link
       to={location + activeLink}
