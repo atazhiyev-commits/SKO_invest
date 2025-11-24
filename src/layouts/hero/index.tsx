@@ -18,8 +18,6 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useTranslation();
   const listHero = t("hero.list", { returnObjects: true }) as Array<headerList>;
 
-  const lang = useLG.lang;
-
   return (
     <section className={clsx("hero", className)}>
       <img src={img} alt="bgimg" className="hero__bg" />
@@ -33,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
               {listHero.map((item, index: number) => (
                 <li className="item-hero" key={index}>
                   <ChevronRight />
-                  <Link to={lang + item.link}>{item.name}</Link>
+                  <Link to={"catalog" + item.link}>{item.name}</Link>
                 </li>
               ))}
             </ul>

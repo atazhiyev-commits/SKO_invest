@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useA11yStore = create((set) => ({
   a11yMode: false,
   toggleA11yMode: () =>
-    set((state) => {
+    set((state: any) => {
       const newState = !state.a11yMode;
       localStorage.setItem("a11yMode", JSON.stringify(newState));
       return { a11yMode: newState };

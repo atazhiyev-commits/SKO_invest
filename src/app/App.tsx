@@ -1,16 +1,13 @@
 import { useEffect } from "react";
-import { BrowserRouter, Navigate, Route, Router, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { useA11yStore } from "./a11";
+import { routeList } from "../router/routeLayoute";
 import i18n from "../shared/config/i18n/i18n";
-
-import Layouts from "./../layouts";
 
 import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 
 import "./../styles/app.css";
-import Catalog from "../layouts/catalog";
-import { routeList } from "../router/routeLayoute";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);

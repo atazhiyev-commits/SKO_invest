@@ -6,6 +6,7 @@ import AboutTheRegion from "./About the region";
 import InvestorGuide from "./Investor guide";
 import InvestmentOpportunities from "./Investment opportunities";
 import RegulatoryLegalActs from "./Regulatory legal acts";
+import LandPlot from "./LandPlot";
 import Anylink from "./Anylink";
 
 export const CatalogContent = [
@@ -33,6 +34,10 @@ export const CatalogContent = [
   {
     link: "regulatory-acts",
     element: RegulatoryLegalActs,
+  },
+  {
+    link: "land-without-auction",
+    element: LandPlot,
   },
   {
     link: "",
