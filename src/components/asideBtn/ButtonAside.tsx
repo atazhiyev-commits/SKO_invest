@@ -1,43 +1,98 @@
 import { useState, type FC } from "react";
 import clsx from "clsx";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-
 import "./buttonAside.scss";
+
+interface SubItem {
+  name: string;
+  link?: string;
+}
+
+interface ListItem {
+  name: string;
+  link: string;
+  list?: SubItem[];
+}
 
 interface Props {
   name: string;
   activeLink: string;
-  children?: React.ReactNode;
+  list?: ListItem[];
   className?: string;
 }
 
-const ButtonAside: FC<Props> = ({ name, activeLink, className }) => {
-  const location = useLocation().pathname;
-  const navigate = useNavigate();
+const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
+  const [active, setActive] = useState(false);
+  const [secondActive, setSecondActive] = useState<number | null>(null);
 
-  const lastSegment = location.split("/").filter(Boolean).at(-1);
+  const toggleSecondLevel = (index: number) => {
+    setSecondActive(secondActive === index ? null : index);
+  };
 
   return (
-    <Link
-      to={location + activeLink}
-      onClick={(e) => {
-        if (lastSegment) {
-          e.preventDefault();
-          navigate(0);
-        }
-      }}
-      className={clsx("buttonAside", className)}
-    >
-      <span className="buttonAside__name">
-        {name} <ChevronDown size={16} className="chevron" />
-      </span>
-    </Link>
+    <div className="btnaside" data-active={active}>
+      <Link
+        to={`/ru/catalog${activeLink}`}
+        className={clsx("buttonAside", className)}
+        onClick={() => {
+          if (list && list.length > 0) {
+            setActive(!active);
+          }
+        }}
+      >
+        <span className="buttonAside__name">
+          {name}
+          {list && list.length > 0 && (
+            <ChevronDown size={16} className="chevron" />
+          )}
+        </span>
+      </Link>
+
+      <div className="collapse-wrapper" data-open={active}>
+        <ul className="second">
+          {list?.map((item, index) => (
+            <li key={index} className="second__li">
+              <Link
+                to={`/ru/catalog${item.link}`}
+                className="item-header"
+                onClick={(e) => {
+                  toggleSecondLevel(index);
+                }}
+              >
+                {item.name}
+                {item.list && (
+                  <ChevronDown
+                    size={14}
+                    className={clsx("chevron-small", {
+                      rotated: secondActive === index,
+                    })}
+                  />
+                )}
+              </Link>
+
+              {item.list && (
+                <div
+                  className="collapse-wrapper"
+                  data-open={secondActive === index}
+                >
+                  <ul className="three">
+                    {item.list.map((subItem, subIndex) => (
+                      <li key={subIndex} className="three__li">
+                        <Link to={`/ru/catalog${item.link}${subItem.link}`}>
+                          {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 

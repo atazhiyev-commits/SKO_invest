@@ -2,6 +2,7 @@
   "translation": {
     "news": {
       "title": "Жаналыктар"
-    }
+    },
+    "NotFound": "Ештене табылмады"
   }
 }

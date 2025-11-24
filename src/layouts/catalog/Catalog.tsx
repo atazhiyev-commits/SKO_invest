@@ -1,17 +1,14 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import clsx from "clsx";
+import { useLocation } from "react-router";
+import { useTranslation } from "react-i18next";
+import type { headerList } from "../header/HeaderDown";
 import Container from "../../components/container/Container";
 import ButtonAside from "../../components/asideBtn";
-
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+import { CatalogContent } from "../../pages/forInvestor/list";
+import Anylink from "../../pages/forInvestor/Anylink";
 
 import "./catalog.scss";
-import type { headerList } from "../header/HeaderDown";
-import { useTranslation } from "react-i18next";
-import { ChevronDown } from "lucide-react";
 
 interface Props {
   pageName?: string;
@@ -20,18 +17,21 @@ interface Props {
 
 const Catalog: FC<Props> = ({ pageName, className }) => {
   const { t } = useTranslation();
-  
+
+  const location = useLocation().pathname;
+
+  const lastPart = location
+    .split("/")
+    .filter((segment) => segment.length > 0)
+    .pop();
 
   const nameBottom = t("header.headerBottom", {
     returnObjects: true,
   }) as Array<headerList>;
 
-  const [expanded, setExpanded] = useState<string | false>(false);
+  const reuslt = CatalogContent.find((item) => item.link === lastPart);
 
-  const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+  const Component: any = reuslt ? reuslt.element : Anylink;
 
   return (
     <section className={clsx("catalog", className)}>
@@ -48,13 +48,16 @@ const Catalog: FC<Props> = ({ pageName, className }) => {
         <div className="catalog__content">
           <aside className="catalog__content-aside">
             {nameBottom.map((item, index) => (
-             <ButtonAside key={index} name={item.label} />
+              <ButtonAside
+                key={index}
+                name={item.label}
+                activeLink={item.link}
+                list={item.list}
+              />
             ))}
           </aside>
           <div className="catalog__content-info">
-            <div className="content">
-              <h2>Регистрация бизнеса</h2>
-            </div>
+            <div className="content">{<Component />}</div>
           </div>
         </div>
       </Container>
