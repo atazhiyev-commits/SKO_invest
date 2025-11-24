@@ -82,9 +82,14 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #e5e5e5;
+    background: #ffffff;
 
     .three__li {
+      &[data-color="true"] {
+        a {
+          color: var(--color-lightBlue);
+        }
+      }
       a {
         display: block;
         padding: 10px 22px 10px 40px;
@@ -92,14 +97,16 @@
         color: #333;
         font-size: 14px;
 
+        transition: all 0.3s ease;
+
         &:hover {
-          color: #000;
-          background: rgba(0, 0, 0, 0.05);
+          color: var(--color-lightBlue);
         }
       }
     }
   }
 }
+
 @media screen and (max-width: 600px) {
   .btnaside {
     .buttonAside__name {

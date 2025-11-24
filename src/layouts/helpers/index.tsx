@@ -26,7 +26,7 @@ const Helper: React.FC<HelperProps> = ({ className }) => {
   }) as Array<helpList>;
 
   return (
-    <section className={clsx("helper", className)}>
+    <section className={clsx("helper", className)} id="helpers">
       <Container>
         <h2 className="title-section">{t("helpers.title")}</h2>
         <div className="helper__content">

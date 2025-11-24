@@ -33,7 +33,7 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
       <Sidebar
         onBackdropClick={() => setToggled(false)}
         toggled={toggled}
-        breakPoint="always"
+        breakPoint="all"
         rtl
         className="sidebar"
         backgroundColor="#fff"
@@ -52,6 +52,7 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
           </MenuItem>
           {nameBottom.map((item, index) => (
             <MenuItem
+            key={index}
               component={<Link to={lang + "/catalog" + item.link} />}
               className="menu-item"
             >

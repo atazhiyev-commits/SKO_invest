@@ -10,6 +10,7 @@ import { useA11yStore } from "../../app/a11";
 import "./header.scss";
 import SideMenu from "../../components/sideMenu";
 import { useState } from "react";
+import HeaderMenu from "./HeaderTop/HeaderMenu";
 
 const HeaderUp = () => {
   const [toggled, setToggled] = useState(false);
@@ -31,25 +32,7 @@ const HeaderUp = () => {
         />
       </div>
 
-      <div className="header__menu">
-        <ul className="header__menu-menuList">
-          <li className="item-li header-item">
-            <Link to={lang + "/"} className="item_link">
-              {t("header.headerMenu.howHelp")}
-            </Link>
-          </li>
-          <li className="item-li header-item">
-            <Link to={lang + "/"} className="item_link">
-              {t("header.headerMenu.protectionInvest")}
-            </Link>
-          </li>
-          <li className="item-li header-item">
-            <Link to={lang + "/"} className="item_link">
-              {t("header.headerMenu.contacts")}
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <HeaderMenu link={lang} />
 
       <nav className="header__nav">
         <button
@@ -76,6 +59,7 @@ const HeaderUp = () => {
             </a>
           </li>
         </ul>
+
         <ul className="header__nav-global_setting">
           <button className="eyes" onClick={toggle}>
             <Eye size={24} />

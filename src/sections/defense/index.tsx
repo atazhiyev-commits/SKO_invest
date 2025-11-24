@@ -15,7 +15,7 @@ const Defense: React.FC<DefenseProps> = ({ className }) => {
 
   const { t } = useTranslation();
   return (
-    <section className={clsx("defense", className)}>
+    <section className={clsx("defense", className)} id="defense">
       <Container>
         <header className="defense__header">
           <h2 className="title-section">{t("defense.title")}</h2>

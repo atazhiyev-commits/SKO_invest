@@ -16,12 +16,18 @@
     margin-top: 60px;
   }
 }
+
 @media screen and (max-width: 650px) {
   .main {
     margin-top: 100px;
   }
-  
+
 }
+
 .end {
   margin-top: 1000px;
+}
+
+html {
+  scroll-behavior: smooth;
 }

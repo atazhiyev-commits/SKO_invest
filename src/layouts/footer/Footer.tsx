@@ -2,15 +2,14 @@ import type { FC } from "react";
 import clsx from "clsx";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
+import { useLG } from "../../app/lg";
 import Container from "../../components/container/Container";
 
+import { Facebook, Instagram, Send } from "lucide-react";
 import logo from "./../../assets/images/logo/logo.svg";
 import gerb from "./../../assets/images/logo/gerb.svg";
 
-import { Facebook, Instagram, Send } from "lucide-react";
-
 import "./footer.scss";
-import { useLG } from "../../app/lg";
 
 interface Props {
   className?: string;
@@ -21,7 +20,7 @@ const Footer: FC<Props> = ({ className }) => {
 
   const { t } = useTranslation();
   return (
-    <footer className={clsx("footer", className)}>
+    <footer className={clsx("footer", className)} id="contact">
       <Container>
         <div className="footer__inner">
           <div className="footer__icons">

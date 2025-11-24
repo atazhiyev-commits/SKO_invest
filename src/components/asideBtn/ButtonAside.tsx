@@ -26,9 +26,9 @@ interface Props {
 const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   const [active, setActive] = useState(false);
   const [secondActive, setSecondActive] = useState<string>("");
+  const [threeActive, setThreeActive] = useState<string>("");
 
   const clean = (s: string) => s.replace("/", "");
-
   const toggleSecondLevel = (link: string) => {
     setSecondActive((prev) => (prev === link ? "" : link));
   };
@@ -36,13 +36,16 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   const location = useLocation().pathname.split("/");
   const last3 = location.at(3);
   const last4 = location.at(4);
+  const last5 = location.at(5);
 
   useEffect(() => {
     setSecondActive(last4 ? clean(last4) : "");
+    setThreeActive(last5 ? clean(last5) : "");
+
     const link = activeLink.replace("/", "");
 
     setActive(link === last3 || link === last3);
-  }, [last3, last4]);
+  }, [last3, last4, last5]);
 
   useEffect(() => {
     if (secondActive === last3) {
@@ -98,8 +101,19 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
                 >
                   <ul className="three">
                     {item.list.map((subItem, subIndex) => (
-                      <li key={subIndex} className="three__li">
+                      <li
+                        key={subIndex}
+                        className="three__li"
+                        data-color={
+                          threeActive === subItem.link?.replace("/", "")
+                        }
+                      >
                         <Link
+                          className={clsx(
+                            last5 === subItem.link?.replace("/", "")
+                              ? "active"
+                              : ""
+                          )}
                           to={`/ru/catalog${activeLink}${item.link}${subItem.link}`}
                         >
                           {subItem.name}
