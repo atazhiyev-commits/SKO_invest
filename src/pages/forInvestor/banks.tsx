@@ -8,7 +8,7 @@ interface Props {
 const Banks: FC<Props> = ({ className }) => {
   return (
     <>
-    <h2 className={clsx("catalog__banks", className)}>Banks</h2>
+    <h2 className={clsx("catalog__banks titleInvest", className)}>Banks</h2>
     </>
   );
 };

@@ -1,0 +1,16 @@
+.sideMenu {
+  position: absolute;
+  z-index: 5;
+
+  .sidebar {
+    background-color: #fff;
+    width: 450px;
+    .menu {
+      .menu-item {
+        color: #000;
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -108,7 +108,8 @@
     align-items: center;
     gap: 20px;
 
-    &-burger {
+    &-burgerMenu {
+      color: white;
       display: none;
     }
 
@@ -195,7 +196,7 @@
     }
 
     &__nav {
-      &-burger {
+      &-burgerMenu {
         display: block;
       }
 

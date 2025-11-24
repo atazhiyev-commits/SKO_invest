@@ -12,6 +12,7 @@ const Anylink: FC<Props> = ({ className }) => {
   return (
     <section className={clsx("", className)}>
       <h2>{t("NotFound")}</h2>
+      <p className="end">End</p>
     </section>
   );
 };

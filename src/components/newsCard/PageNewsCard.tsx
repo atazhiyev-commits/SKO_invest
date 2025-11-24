@@ -1,0 +1,45 @@
+import clsx from "clsx";
+
+import "./newsCard.scss";
+import { Link } from "react-router";
+
+interface PageNewsCardProps {
+  title: string;
+  date: string;
+  imageSrc: string;
+  className?: string;
+}
+
+const PageNewsCard: React.FC<PageNewsCardProps> = ({
+  title,
+  date,
+  imageSrc,
+  className,
+}) => {
+  return (
+    <Link
+      to={"/news"}
+      className={clsx("PageNewsCard", className)}
+      data-testid="PageNewsCard"
+    >
+      <div className="news-image" data-testid="news-image">
+        <img
+          src={imageSrc}
+          className="bgImage"
+          alt={title}
+          data-testid="news-image-img"
+        />
+      </div>
+      <div className="news-info" data-testid="news-info">
+        <span className="news-date" data-testid="news-date">
+          {date}
+        </span>
+        <p className="news-title" data-testid="news-title">
+          {title}
+        </p>
+      </div>
+    </Link>
+  );
+};
+
+export default PageNewsCard;

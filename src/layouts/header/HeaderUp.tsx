@@ -2,14 +2,17 @@ import { Link } from "react-router";
 import { Eye, FacebookIcon, Instagram, Menu, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../../shared/ui/LanguageSwitcher";
-
-import logo from "./../../assets/images/logo/logo.svg";
 import { useLG } from "../../app/lg";
 
-import "./header.scss";
+import logo from "./../../assets/images/logo/logo.svg";
 import { useA11yStore } from "../../app/a11";
 
+import "./header.scss";
+import SideMenu from "../../components/sideMenu";
+import { useState } from "react";
+
 const HeaderUp = () => {
+  const [toggled, setToggled] = useState(false);
   const { t } = useTranslation();
   const lang = useLG.lang;
 
@@ -49,7 +52,13 @@ const HeaderUp = () => {
       </div>
 
       <nav className="header__nav">
-        <Menu className="header__nav-burger" size={32} />
+        <button
+          className="header__nav-burgerMenu"
+          onClick={() => setToggled(!toggled)}
+        >
+          <Menu className="burger" size={32} />
+        </button>
+
         <ul className="header__nav-socMedia">
           <li className="socItem">
             <a className="soc_link" href="https://www.facebook.com/rsk.sko/">
@@ -80,6 +89,8 @@ const HeaderUp = () => {
           </Link>
         </div>
       </nav>
+
+      <SideMenu toggled={toggled} setToggled={setToggled} />
     </div>
   );
 };

@@ -11,8 +11,6 @@ import SmallImg from "../../components/newsCard/SmallImg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testNews } from "./test";
 
-import { useLG } from "../../app/lg";
-
 import "./news.scss";
 
 interface NewsProps {

@@ -297,6 +297,8 @@
         "email": "Mail"
       }
     },
+    "PageNews": { "title": "All news" },
+
     "NotFound": "Not found"
   }
 }

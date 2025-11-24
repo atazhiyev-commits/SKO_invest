@@ -1,9 +1,10 @@
 .blockHelper {
+  width: max-content;
   &__item {
     height: 55px;
     display: flex;
     align-items: center;
-    width: 490px;
+    max-width: 490px;
     padding: 16px 22px;
     gap: 20px;
     background-color: var(--color-white);

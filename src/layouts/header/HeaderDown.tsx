@@ -34,7 +34,7 @@ const HeaderDown = () => {
           </Link>
 
           {item.list.length > 0 && (
-            <DropDown list={item.list} className="dropdown" />
+            <DropDown list={item.list} basePath={lang + "/catalog" + item.link} className="dropdown" />
           )}
         </div>
       ))}

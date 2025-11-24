@@ -27,22 +27,30 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   const [active, setActive] = useState(false);
   const [secondActive, setSecondActive] = useState<string>("");
 
+  const clean = (s: string) => s.replace("/", "");
+
   const toggleSecondLevel = (link: string) => {
-    setSecondActive(secondActive === link ? "" : link);
+    setSecondActive((prev) => (prev === link ? "" : link));
   };
 
-  const location = useLocation().pathname;
-  const lastPart = location.split("/");
-
-  const last1 = lastPart[lastPart.length - 1];
-  const last2 = lastPart[lastPart.length - 2];
-  const last3 = lastPart[lastPart.length - 3];
+  const location = useLocation().pathname.split("/");
+  const last3 = location.at(3);
+  const last4 = location.at(4);
 
   useEffect(() => {
+    setSecondActive(last4 ? clean(last4) : "");
     const link = activeLink.replace("/", "");
 
-    setActive(link === last1 || link === last2 || link === last3);
-  }, [last1, last2, last3]);
+    setActive(link === last3 || link === last3);
+  }, [last3, last4]);
+
+  useEffect(() => {
+    if (secondActive === last3) {
+      setSecondActive(clean(last3));
+    } else if (secondActive === last4) {
+      setSecondActive(clean(last4));
+    }
+  }, [last4, last3]);
 
   return (
     <div className="btnaside" data-active={active}>
@@ -50,11 +58,9 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
         to={`/ru/catalog${activeLink}`}
         className={clsx("buttonAside", className)}
         onClick={() => {
-          setActive((e) => {
-            if (list.length > 0) {
-              setActive(true);
-            }
-          });
+          if (list && list.length > 0) {
+            setActive(true);
+          }
         }}
       >
         <span className="buttonAside__name">
@@ -72,16 +78,14 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
               <Link
                 to={`/ru/catalog${activeLink}${item.link}`}
                 className="item-header"
-                onClick={() => {
-                  toggleSecondLevel(item.link);
-                }}
+                onClick={() => toggleSecondLevel(clean(item.link))}
               >
                 {item.name}
                 {item.list && (
                   <ChevronDown
                     size={14}
                     className={clsx("chevron-small", {
-                      rotated: secondActive === item.link,
+                      rotated: secondActive === clean(item.link),
                     })}
                   />
                 )}
@@ -90,7 +94,7 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
               {item.list && (
                 <div
                   className="collapse-wrapper"
-                  data-open={secondActive === item.link}
+                  data-open={secondActive === clean(item.link)}
                 >
                   <ul className="three">
                     {item.list.map((subItem, subIndex) => (

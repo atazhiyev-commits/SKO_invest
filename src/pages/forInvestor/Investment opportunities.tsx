@@ -1,5 +1,5 @@
-import { type FC } from 'react';
-import clsx from 'clsx';
+import { type FC } from "react";
+import clsx from "clsx";
 
 interface Props {
   className?: string;
@@ -7,8 +7,8 @@ interface Props {
 
 const InvestmentOpportunities: FC<Props> = ({ className }) => {
   return (
-    <div className={clsx('InvestmentOpportunities', className)}>
-      <h2 className='title-section' >InvestmentOpportunities</h2>
+    <div className={clsx("InvestmentOpportunities", className)}>
+      <h2 className="title-section titleInvest">InvestmentOpportunities</h2>
     </div>
   );
 };

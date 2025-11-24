@@ -9,6 +9,8 @@ import RegulatoryLegalActs from "./Regulatory legal acts";
 import LandPlot from "./LandPlot";
 import Anylink from "./Anylink";
 
+import "./forinvestor.scss"
+
 export const CatalogContent = [
   { link: "banks", element: Banks },
   {
@@ -36,7 +38,7 @@ export const CatalogContent = [
     element: RegulatoryLegalActs,
   },
   {
-    link: "land-without-auction",
+    link: "land-plots",
     element: LandPlot,
   },
   {

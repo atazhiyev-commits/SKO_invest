@@ -6,9 +6,9 @@ import type { headerList } from "../header/HeaderDown";
 import Container from "../../components/container/Container";
 import ButtonAside from "../../components/asideBtn";
 import { CatalogContent } from "../../pages/forInvestor/list";
+import Anylink from "../../pages/forInvestor/Anylink";
 
 import "./catalog.scss";
-import Anylink from "../../pages/forInvestor/Anylink";
 
 interface Props {
   pageName?: string;

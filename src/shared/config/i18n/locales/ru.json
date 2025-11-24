@@ -194,9 +194,12 @@
       "list": [
         {
           "name": "Получить земельный участок в аренду без торгов",
-          "link": "/land-without-auction"
+          "link": "/investor-guide/land-plots/land-without-auction"
         },
-        { "name": "Посмотреть меры поддержки", "link": "/support-measures" },
+        {
+          "name": "Посмотреть меры поддержки",
+          "link": "/investor-guide/gov-support/support-measures"
+        },
         {
           "name": "Выбрать место для реализации проекта",
           "link": "/ongoing-projects"
@@ -289,6 +292,9 @@
         "email": "Почта"
       }
     },
+
+    "PageNews": { "title": "Все новости" },
+
     "NotFound": "Ничего не найдено"
   }
 }

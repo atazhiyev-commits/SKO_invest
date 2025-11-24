@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import Container from "../../components/container/Container";
 import type { headerList } from "../header/HeaderDown";
 
-import { useLG } from "../../app/lg";
 import { ChevronRight } from "lucide-react";
 import img from "./../../assets/images/background/back.png";
 
