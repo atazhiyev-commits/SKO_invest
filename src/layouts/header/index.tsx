@@ -1,12 +1,12 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 import clsx from "clsx";
 
 import HeaderUp from "./HeaderUp";
 import HeaderDown from "./HeaderDown";
-import Container from "../../components/container/Container";
+import Container from "@/components/container/Container";
 
 import "./header.scss";
-import { useLocation } from "react-router";
-import { useEffect } from "react";
 
 interface HeaderProps {
   className?: string;

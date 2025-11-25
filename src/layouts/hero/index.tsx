@@ -7,8 +7,9 @@ import Container from "@/components/container/Container";
 import CarouselHero from "@/components/Carousel/CarouselHero";
 import { ChevronRight } from "lucide-react";
 
-import "./hero.scss";
 import { images } from "./backgroundImages";
+
+import "./hero.scss";
 
 interface HeroProps {
   className?: string;

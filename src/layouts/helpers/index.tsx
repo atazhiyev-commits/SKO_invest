@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import { Info } from "lucide-react";
-import Container from "../../components/container/Container";
-import BlockHelper from "../../components/blockHelper";
+import Container from "@/components/container/Container";
+import BlockHelper from "@/components/blockHelper";
 
-import "./helpers.scss";
 import { textHelp } from "./test";
+import "./helpers.scss";
 
 interface HelperProps {
   className?: string;

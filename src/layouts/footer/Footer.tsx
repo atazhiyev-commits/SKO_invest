@@ -1,13 +1,13 @@
 import type { FC } from "react";
 import clsx from "clsx";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import { HashLink } from "react-router-hash-link";
 import { useTranslation } from "react-i18next";
-import { useLG } from "../../app/lg";
-import Container from "../../components/container/Container";
+import Container from "@/components/container/Container";
 
 import { Facebook, Instagram, Send } from "lucide-react";
-import logo from "./../../assets/images/logo/logo.svg";
-import gerb from "./../../assets/images/logo/gerb.svg";
+import logo from "@/assets/images/logo/logo.svg";
+import gerb from "@/assets/images/logo/gerb.svg";
 
 import "./footer.scss";
 
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Footer: FC<Props> = ({ className }) => {
-  const lang = useLG.lang;
+  const lang = useLocation().pathname.split("/")[1];
 
   const { t } = useTranslation();
   return (
@@ -31,7 +31,7 @@ const Footer: FC<Props> = ({ className }) => {
                 </Link>
               </div>
               <div className="logo">
-                <Link to={"/"}>
+                <Link to={lang + "/"}>
                   <img src={logo} alt="Логотип" />
                 </Link>
               </div>
@@ -53,23 +53,23 @@ const Footer: FC<Props> = ({ className }) => {
             <h2 className="title-footer">{t("footer.forInvestors")}</h2>
             <nav className="footer__menu-list">
               <li className="menu-item">
-                <Link to={lang + "/investor-guide"}>
+                <Link to={lang + "/catalog/investor-guide"}>
                   {t("footer.listInvestor.guide")}
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to={lang + "/investment-opportunities"}>
+                <Link to={lang + "/catalog/investment-opportunities"}>
                   {t("footer.listInvestor.opportunities")}
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to={lang + "/investment-map"}>
-                  {t("footer.listInvestor.map")}
+                <Link to={lang + "/catalog/regulatory-acts"}>
+                  {t("footer.listInvestor.regulations")}
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to={lang + "/regulations"}>
-                  {t("footer.listInvestor.regulations")}
+                <Link to={lang + "/catalog/about-region"}>
+                  {t("footer.listInvestor.aboutRegion")}
                 </Link>
               </li>
             </nav>
@@ -85,22 +85,14 @@ const Footer: FC<Props> = ({ className }) => {
                   </Link>
                 </li>
                 <li className="item-list">
-                  <Link to={lang + "/send-request"} className="item_link">
-                    {t("footer.listNavigate.sendRequest")}
-                  </Link>
+                  <HashLink to={lang + "/#helpers"} className="item_link">
+                    {t("header.headerMenu.howHelp")}
+                  </HashLink>
                 </li>
                 <li className="item-list">
-                  <Link
-                    to={lang + "/investor-protection"}
-                    className="item_link"
-                  >
-                    {t("footer.listNavigate.defense")}
-                  </Link>
-                </li>
-                <li className="item-list">
-                  <Link to={lang + "/about-region"} className="item_link">
-                    {t("footer.listNavigate.aboutRegion")}
-                  </Link>
+                  <HashLink to={lang + "/#defense"} className="item_link">
+                    {t("header.headerMenu.protectionInvest")}
+                  </HashLink>
                 </li>
               </ul>
             </nav>

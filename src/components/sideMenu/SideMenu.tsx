@@ -1,13 +1,15 @@
-import { useState, type FC } from "react";
-import clsx from "clsx";
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-
+import { type FC } from "react";
 import { Link } from "react-router";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { useTranslation } from "react-i18next";
+import clsx from "clsx";
+
 import { useLG } from "../../app/lg";
 
-import "./sideMenu.scss";
 import type { headerList } from "../../layouts/header/HeaderDown";
+
+import "./sideMenu.scss";
+import { X } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -41,6 +43,9 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
         collapsed
       >
         <Menu className="menu">
+          <button className="menu__close" onClick={() => setToggled(false)}>
+            <X />
+          </button>
           <MenuItem className="menu-item">
             {t("header.headerMenu.howHelp")}
           </MenuItem>
@@ -52,7 +57,7 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
           </MenuItem>
           {nameBottom.map((item, index) => (
             <MenuItem
-            key={index}
+              key={index}
               component={<Link to={lang + "/catalog" + item.link} />}
               className="menu-item"
             >

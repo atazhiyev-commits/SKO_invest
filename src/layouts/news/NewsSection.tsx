@@ -2,9 +2,9 @@ import { Link } from "react-router";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 
-import CarouselEmbla from "../../components/Carousel/CarouselEmbla";
-import Container from "../../components/container/Container";
-import SmallImg from "../../components/newsCard/SmallImg";
+import CarouselEmbla from "@/components/Carousel/CarouselEmbla";
+import Container from "@/components/container/Container";
+import SmallImg from "@/components/newsCard/SmallImg";
 
 import { testNews } from "./test";
 

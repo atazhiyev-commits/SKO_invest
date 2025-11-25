@@ -40,7 +40,12 @@
   }
 }
 
-@media screen and (max-width: 992px) {
+@mixin clamp($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: $line;
 }
 
 @media screen and (max-width: 650px) {
@@ -50,5 +55,15 @@
 
   .btn-section {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .title-section {
+    font-size: 20px;
+  }
+
+  .btn-section {
+    text-align: center;
   }
 }

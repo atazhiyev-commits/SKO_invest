@@ -1,18 +1,21 @@
 .hero {
-  height: 100vh;
+  position: relative;
+  min-height: 100dvh;
+  height: auto;
+  padding-bottom: 50px;
 
   &__bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
 
     .imageBack {
       position: absolute;
       inset: 0;
-      
+
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -38,7 +41,7 @@
   &__content {
     position: relative;
     z-index: 2;
-    margin-top: 155px;
+    margin-top: 255px;
 
     .hero__title {
       color: var(--color-white);
@@ -78,21 +81,28 @@
     }
   }
 
-  @media screen and (max-width: 650px) {
-    .hero__content-nav {
-      .hero__ul {
-        .item-hero {
-          a {
-            font-size: 16px;
+  @media screen and (max-width: 520px) {
+    &__content {
+      .hero__title {
+        font-size: 24px;
+      }
+
+      &-nav {
+        margin-top: 80px;
+
+        .title-section {
+          font-size: 20px;
+        }
+
+        .hero__ul {
+          .item-hero {
+            a {
+              @include clamp(2);
+              font-size: 14px;
+            }
           }
         }
       }
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    .hero__content-nav {
-      margin-top: 90px;
     }
   }
 }

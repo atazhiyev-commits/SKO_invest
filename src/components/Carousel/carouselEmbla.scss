@@ -31,5 +31,19 @@
     .embla__next {
       right: 0;
     }
+
+    button {
+      svg {
+        width: 48px;
+        height: 48px;
+      }
+
+      @media screen and (max-width: 600px) {
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
   }
 }

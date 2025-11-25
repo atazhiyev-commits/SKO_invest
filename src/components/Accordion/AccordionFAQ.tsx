@@ -19,6 +19,7 @@ export type FAQlist = {
 
 const AccordionFAQ: FC<FAQProps> = ({ question, answer, className }) => {
   const [expanded, setExpanded] = useState<string | false>(false);
+
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
@@ -35,10 +36,10 @@ const AccordionFAQ: FC<FAQProps> = ({ question, answer, className }) => {
         className="accordionSummary"
         expandIcon={<ChevronDown />}
       >
-        <Typography>{question}</Typography>
+        <Typography className="question">{question}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>{answer}</Typography>
+        <Typography className="answer">{answer}</Typography>
       </AccordionDetails>
     </Accordion>
   );

@@ -277,14 +277,13 @@
       "listInvestor": {
         "guide": "Путеводитель инвестора",
         "opportunities": "Инвестиционные возможности",
-        "map": "Инвестиционная карта",
-        "regulations": "Нормативные правовые нормы"
+        "regulations": "Нормативные правовые нормы",
+        "aboutRegion": "О регионе"
       },
       "listNavigate": {
         "news": "Новости",
         "sendRequest": "Направить запрос",
-        "defense": "Защита инвесторов",
-        "aboutRegion": "О регионе"
+        "defense": "Защита инвесторов"
       },
       "contactItems": {
         "homephone": "Для домашнего",

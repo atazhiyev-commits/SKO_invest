@@ -3,11 +3,11 @@
   padding-block: 90px;
 
   &__content {
-    height: 415px;
-    margin-top: 35px;
-    gap: 35px;
     display: flex;
     justify-content: space-between;
+    gap: 35px;
+    height: 415px;
+    margin-top: 35px;
 
     &-list {
       display: flex;
@@ -20,20 +20,38 @@
     }
 
     &-info {
-      max-width: 585px;
+      max-width: 555px;
 
       .descInfo {
         margin-top: 25px;
+        font-size: 18px;
+
+        @media screen and (max-width: 426px){
+            font-size: 15px;
+        }
       }
     }
   }
-  
+
   @media screen and (max-width: 1170px) {
     &__content {
       flex-direction: column;
+      justify-content: start;
+      height: 100%;
 
-      &-list{
+      &-list {
         width: 100%;
+        flex-direction: row;
+        padding-right: 0;
+        padding-bottom: 10px;
+      }
+
+      &-info {
+        max-width: 100%;
+
+        .descInfo {
+          margin-top: 25px;
+        }
       }
     }
   }

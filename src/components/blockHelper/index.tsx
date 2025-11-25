@@ -10,7 +10,12 @@ interface BlockHelperProps {
   className?: string;
 }
 
-const BlockHelper: React.FC<BlockHelperProps> = ({ name, icon, onClick, className }) => {
+const BlockHelper: React.FC<BlockHelperProps> = ({
+  name,
+  icon,
+  onClick,
+  className,
+}) => {
   return (
     <button className={clsx("blockHelper", className)} onClick={onClick}>
       <div className="blockHelper__item">
