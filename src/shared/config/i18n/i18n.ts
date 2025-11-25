@@ -24,7 +24,7 @@ i18n
     },
     detection: {
       order: ["path", "cookie", "localStorage"],
-      lookupFromPathIndex: 0,
+      lookupFromPathIndex: 1,
     },
     resources,
   });

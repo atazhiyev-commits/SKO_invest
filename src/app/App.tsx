@@ -1,5 +1,11 @@
 import { useEffect } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router";
 import { useA11yStore } from "./a11";
 import { routeList } from "../router/routeLayoute";
 import i18n from "../shared/config/i18n/i18n";
@@ -8,10 +14,12 @@ import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 
 import "@/styles/App.scss";
+import { base_url } from "./lg";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);
   const initA11y = useA11yStore((s: any) => s.initA11y);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     initA11y();
@@ -24,20 +32,21 @@ const App = () => {
   }, [a11yMode]);
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        <Header />
-        <main className="main">
-          <Routes>
-            <Route path="/" element={<Navigate to="/ru" replace />} />
-            {routeList.map((route: any, index: number) => (
-              <Route key={index} path={route.path} Component={route.element} />
-            ))}
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className="app">
+      <Header />
+      <main className="main">
+        <Routes>
+          <Route
+            path="/"
+            element={<Navigate to={base_url + "/:lang"} replace />}
+          />
+          {routeList.map((route: any, index: number) => (
+            <Route key={index} path={route.path} Component={route.element} />
+          ))}
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
