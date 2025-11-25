@@ -7,7 +7,7 @@ import i18n from "../shared/config/i18n/i18n";
 import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 
-import "@/styles/app.scss";
+import "@/styles/App.scss";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);
