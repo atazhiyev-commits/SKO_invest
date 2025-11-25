@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { Eye, FacebookIcon, Instagram, Menu, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../../shared/ui/LanguageSwitcher";
@@ -66,10 +66,10 @@ const HeaderUp = () => {
           <LanguageSwitcher />
         </ul>
         <div className="header__logo">
-          <Link to={lang + "/"} className="header__logo-link">
+          <NavLink to={"en" + "/"} className="header__logo-link">
             <img src={logo} alt="Logo" />
             <span>SKO</span>
-          </Link>
+          </NavLink>
         </div>
       </nav>
 
