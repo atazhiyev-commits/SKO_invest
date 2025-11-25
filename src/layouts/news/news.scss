@@ -1,5 +1,6 @@
 .news {
   margin-block: 75px;
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -27,42 +28,6 @@
 
         .news__small {
           max-width: 270px;
-        }
-      }
-    }
-
-    .embla {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-
-      .embla__container {
-        display: flex;
-      }
-
-      .embla__slide {
-        flex: 0 0 100%;
-        min-width: 0;
-      }
-
-      .embla__buttons {
-        .embla__prev,
-        .embla__next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          padding-inline: 20px;
-
-          .iconBtn {
-            color: var(--color-white);
-          }
-        }
-
-        .embla__prev {
-          left: 0;
-        }
-        .embla__next {
-          right: 0;
         }
       }
     }

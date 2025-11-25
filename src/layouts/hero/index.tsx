@@ -1,13 +1,14 @@
 import { Link } from "react-router";
-import clsx from "clsx";
 import { useTranslation } from "react-i18next";
-import Container from "../../components/container/Container";
-import type { headerList } from "../header/HeaderDown";
+import clsx from "clsx";
+import type { headerList } from "./../header/HeaderDown";
 
+import Container from "@/components/container/Container";
+import CarouselHero from "@/components/Carousel/CarouselHero";
 import { ChevronRight } from "lucide-react";
-import img from "./../../assets/images/background/back.png";
 
 import "./hero.scss";
+import { images } from "./backgroundImages";
 
 interface HeroProps {
   className?: string;
@@ -19,7 +20,15 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
   return (
     <section className={clsx("hero", className)}>
-      <img src={img} alt="bgimg" className="hero__bg" />
+      <div className="hero__bg">
+        <CarouselHero
+          imageList={images}
+          countNews={1}
+          className="hero__bg"
+          classNameImg="imageBack"
+        />
+      </div>
+
       <Container>
         <div className="hero__content">
           <h1 className="hero__title">{t("hero.investSKO")}</h1>

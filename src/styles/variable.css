@@ -25,6 +25,7 @@
 }
 
 .btn-section {
+  display: inline-block;
   background-color: var(--color-darkBlue);
   padding: 9px;
   color: var(--color-white);

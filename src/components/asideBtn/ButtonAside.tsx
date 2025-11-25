@@ -44,7 +44,7 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
 
     const link = activeLink.replace("/", "");
 
-    setActive(link === last3 || link === last3);
+    setActive(link === last3);
   }, [last3, last4, last5]);
 
   useEffect(() => {
