@@ -184,7 +184,11 @@
             { "name": "История успеха", "link": "/success-stories" }
           ]
         }
-      ]
+      ],
+      "search": {
+        "label": "Поиск",
+        "link": "/search"
+      }
     },
 
     "hero": {

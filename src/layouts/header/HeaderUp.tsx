@@ -1,16 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { Eye, FacebookIcon, Instagram, Menu, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "../../shared/ui/LanguageSwitcher";
-import { useLG } from "../../app/lg";
+import { useA11yStore } from "@/app/a11";
+import { useLG } from "@/app/lg";
+import LanguageSwitcher from "@/shared/ui/LanguageSwitcher";
+import HeaderMenu from "./HeaderTop/HeaderMenu";
+import SideMenu from "@/components/sideMenu";
 
-import logo from "./../../assets/images/logo/logo.svg";
-import { useA11yStore } from "../../app/a11";
+import logo from "@/assets/images/logo/logo.svg";
 
 import "./header.scss";
-import SideMenu from "../../components/sideMenu";
-import { useState } from "react";
-import HeaderMenu from "./HeaderTop/HeaderMenu";
 
 const HeaderUp = () => {
   const [toggled, setToggled] = useState(false);
@@ -22,13 +22,15 @@ const HeaderUp = () => {
   return (
     <div className="header__UP">
       <div className="header__search">
-        <input
-          className="search__input"
-          type="search"
-          name="search_SKO"
-          id="searchSKO"
-          placeholder={t("header.seacrhPlaceholder")}
-        />
+        <form action={"catalog/search"} className="form">
+          <input
+            className="search__input"
+            type="search"
+            name="q"
+            id="searchSKO"
+            placeholder={t("header.seacrhPlaceholder")}
+          />
+        </form>
       </div>
 
       <HeaderMenu link={lang} />

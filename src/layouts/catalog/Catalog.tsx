@@ -17,15 +17,16 @@ interface Props {
 
 const Catalog: FC<Props> = ({ pageName, className }) => {
   const { t } = useTranslation();
-
   const location = useLocation().pathname;
-
   const lastPart = location
     .split("/")
     .filter((segment) => segment.length > 0)
     .pop();
 
   const nameBottom = t("header.headerBottom", {
+    returnObjects: true,
+  }) as Array<headerList>;
+  const seacrh = t("header.search", {
     returnObjects: true,
   }) as Array<headerList>;
 
@@ -55,6 +56,12 @@ const Catalog: FC<Props> = ({ pageName, className }) => {
                 list={item.list}
               />
             ))}
+            <ButtonAside
+              name={seacrh.label}
+              activeLink={seacrh.link}
+              list={[]}
+              className="catalog__content-aside-anylink"
+            />
           </aside>
           <div className="catalog__content-info">
             <div className="content">{<Component />}</div>

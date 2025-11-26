@@ -4,14 +4,14 @@ import { useA11yStore } from "./a11";
 import { routeList } from "../router/routeLayoute";
 import i18n from "../shared/config/i18n/i18n";
 import { useLang } from "@/shared/store/language";
+import { ScrollToTop } from "@/router/SrollTop";
 
 import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 import ErrorPage from "@/layouts/error/ErrorPage";
+import { languageList } from "@/shared/config/i18n/listLang";
 
 import "@/styles/App.scss";
-import { languageList } from "@/shared/config/i18n/listLang";
-import { ScrollToTop } from "@/router/SrollTop";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);

@@ -8,8 +8,9 @@ import InvestmentOpportunities from "./Investment opportunities";
 import RegulatoryLegalActs from "./Regulatory legal acts";
 import LandPlot from "./LandPlot";
 import Anylink from "./Anylink";
+import SearchCatalog from "./search";
 
-import "./forinvestor.scss"
+import "./forinvestor.scss";
 
 export const CatalogContent = [
   { link: "banks", element: Banks },
@@ -42,7 +43,11 @@ export const CatalogContent = [
     element: LandPlot,
   },
   {
+    link: "seacrh",
+    element: SearchCatalog,
+  },
+  {
     link: "",
     element: Anylink,
-  }
+  },
 ];
