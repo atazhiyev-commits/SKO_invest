@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { Link } from "react-router";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { HashLink } from "react-router-hash-link";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 
@@ -46,14 +47,20 @@ const SideMenu: FC<Props> = ({ toggled, setToggled, children, className }) => {
           <button className="menu__close" onClick={() => setToggled(false)}>
             <X />
           </button>
-          <MenuItem className="menu-item">
-            {t("header.headerMenu.howHelp")}
+          <MenuItem className="menu-item" onClick={() => setToggled(false)}>
+            <HashLink to={lang + "/#helpers"}>
+              {t("header.headerMenu.howHelp")}
+            </HashLink>
           </MenuItem>
-          <MenuItem className="menu-item">
-            {t("header.headerMenu.protectionInvest")}
+          <MenuItem className="menu-item" onClick={() => setToggled(false)}>
+            <HashLink to={lang + "/#defense"}>
+              {t("header.headerMenu.protectionInvest")}
+            </HashLink>
           </MenuItem>
-          <MenuItem className="menu-item">
-            {t("header.headerMenu.contacts")}
+          <MenuItem className="menu-item" onClick={() => setToggled(false)}>
+            <HashLink to={lang + "/#contact"}>
+              {t("header.headerMenu.contacts")}
+            </HashLink>
           </MenuItem>
           {nameBottom.map((item, index) => (
             <MenuItem
