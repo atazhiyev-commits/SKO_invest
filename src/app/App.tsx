@@ -37,7 +37,7 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<Navigate to={`${useLang.lang}`} replace />}
+            element={<Navigate to={`/ru`} replace />}
           />
 
           {routeList.map((route, index) => (
