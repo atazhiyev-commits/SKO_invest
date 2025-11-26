@@ -18,8 +18,6 @@ const App = () => {
 
   const location = useLocation().pathname.split("/")[1];
 
-  if (!languageList.includes(location)) return <ErrorPage />;
-
   useEffect(() => {
     initA11y();
     i18n;
@@ -29,6 +27,9 @@ const App = () => {
     if (a11yMode) document.body.classList.add("a11y-mode");
     else document.body.classList.remove("a11y-mode");
   }, [a11yMode]);
+
+  if (!location) return <Navigate to={useLang.lang} replace />;
+  if (!languageList.includes(location)) return <ErrorPage />;
 
   return (
     <div className="app">
