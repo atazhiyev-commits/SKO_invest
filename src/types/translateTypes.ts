@@ -1,5 +1,6 @@
 export interface LayoutType {
   title: string;
+  label: string;
   link: string;
   list: Array<list>;
 }

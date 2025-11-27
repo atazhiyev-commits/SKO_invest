@@ -1,9 +1,9 @@
 .catalog {
   margin-top: 108px;
-  
+
   &__head {
     position: relative;
-    padding-block: 35px 95px;
+    padding-block: 35px 75px;
     background-image: url("./image/bgCatalog.svg");
 
     &::after {
@@ -25,10 +25,14 @@
 
       .breadcrumb {
         color: var(--color-white);
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: underline;
       }
 
       .catalog__head-title {
         margin-top: 35px;
+        font-size: 48px;
         font-weight: 600;
         color: var(--color-white);
       }

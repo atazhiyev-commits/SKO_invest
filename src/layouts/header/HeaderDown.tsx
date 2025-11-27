@@ -3,22 +3,16 @@ import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import DropDown from "../../components/dropdown";
 import { useLG } from "../../app/lg";
+import type { LayoutType } from "@/types/translateTypes";
 
 import "./header.scss";
-
-export type headerList = {
-  label: string;
-  name: string;
-  link: string;
-  list: any;
-};
 
 const HeaderDown = () => {
   const { t } = useTranslation();
 
   const nameBottom = t("header.headerBottom", {
     returnObjects: true,
-  }) as Array<headerList>;
+  }) as Array<LayoutType>;
 
   const lang = useLG.lang;
 

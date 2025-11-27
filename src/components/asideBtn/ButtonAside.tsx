@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
 
 import "./buttonAside.scss";
+import { useLang } from "@/shared/store/language";
 
 interface SubItem {
   name: string;
@@ -24,6 +25,7 @@ interface Props {
 }
 
 const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
+  const lang = useLang.lang;
   const [active, setActive] = useState(false);
   const [secondActive, setSecondActive] = useState<string>("");
   const [threeActive, setThreeActive] = useState<string>("");
@@ -58,7 +60,8 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
   return (
     <div className="btnaside" data-active={active}>
       <Link
-        to={`/ru/catalog${activeLink}`}
+        state={{ name: name }}
+        to={`/${lang}/catalog${activeLink}`}
         className={clsx("buttonAside", className)}
         onClick={() => {
           if (list && list.length > 0) {
@@ -79,9 +82,12 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
           {list?.map((item, index) => (
             <li key={index} className="second__li">
               <Link
-                to={`/ru/catalog${activeLink}${item.link}`}
+                state={{ name: item.name }}
+                to={`/${lang}/catalog${activeLink}${item.link}`}
                 className="item-header"
-                onClick={() => toggleSecondLevel(clean(item.link))}
+                onClick={() => {
+                  toggleSecondLevel(clean(item.link));
+                }}
               >
                 {item.name}
                 {item.list && (
@@ -109,12 +115,13 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
                         }
                       >
                         <Link
+                          state={{ name: subItem.name }}
                           className={clsx(
                             last5 === subItem.link?.replace("/", "")
                               ? "active"
                               : ""
                           )}
-                          to={`/ru/catalog${activeLink}${item.link}${subItem.link}`}
+                          to={`/${lang}/catalog${activeLink}${item.link}${subItem.link}`}
                         >
                           {subItem.name}
                         </Link>
