@@ -15,15 +15,18 @@ const SearchCatalog: FC<Props> = ({ className }) => {
   const resIndex = useSearchIndex();
 
   const titleSection = resIndex.map((item: any, index: number) => item.title);
-  const filteredSection = titleSection.filter((item: any, index: number) => item.includes(decoded));
-  console.log(titleSection);
+  const filteredSection = titleSection.filter((item: any, index: number) =>
+    item.includes(decoded)
+  );
+  
+  console.log(filteredSection);
 
   return (
     <section className={clsx("searchCatalog", className)}>
       <h2 className="title-section">Результаты: </h2>
       <p>Поиск слово: {decoded}</p>
       <div className="blockresult">
-        <p>{filteredSection ? filteredSection : "Ничего не найдено"}</p>
+        <p>{filteredSection.length !== 0 ? filteredSection : "Ничего не найдено"}</p>
       </div>
     </section>
   );
