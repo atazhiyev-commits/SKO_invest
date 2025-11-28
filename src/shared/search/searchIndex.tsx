@@ -8,6 +8,7 @@ export const useSearchIndex = () => {
   const defenseIndex = t("defense", { returnObjects: true }) as LayoutType;
   const heroIndex = t("hero", { returnObjects: true }) as LayoutType;
   const faqIndex = t("faq", { returnObjects: true }) as FAQtype;
+  const catalogIndex = t("header", { returnObjects: true }) as FAQtype;
 
   const SearchIndex = [
     {
@@ -33,6 +34,11 @@ export const useSearchIndex = () => {
       title: faqIndex.title,
       link: faqIndex?.link,
       list: faqIndex?.list,
+    },
+    {
+      title: "catalog",
+      link: "catalog",
+      list: catalogIndex?.headerBottom,
     },
   ];
 
