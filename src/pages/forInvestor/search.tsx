@@ -1,10 +1,11 @@
 import { Fragment, type FC } from "react";
 import clsx from "clsx";
 import { useLocation } from "react-router";
-import { useSearchIndex } from "@/shared/search/searchIndex";
-import type { LayoutType } from "@/types/translateTypes";
-import { useLang } from "@/shared/store/language";
 import { HashLink } from "react-router-hash-link";
+import { useSearchIndex } from "@/shared/search/searchIndex";
+import { useLang } from "@/shared/store/language";
+
+import type { LayoutType } from "@/types/translateTypes";
 
 import "./seacrh.scss";
 
@@ -17,30 +18,24 @@ const SearchCatalog: FC<Props> = ({ className }) => {
   const searchParams = useLocation().search.split("=")[1];
   const decoded = decodeURIComponent(searchParams).toLowerCase();
 
-  const res = resIndex
-    .map((section) => {
-      const titleMatch = section.title.toLowerCase().includes(decoded);
+  const res = resIndex.map((section) => {
+    const titleMatch =
+      section.title && section.title.toLowerCase().includes(decoded);
 
-      // Фильтруем элементы list
-      const filteredList =
-        section.list &&
-        section.list.filter((item) =>
-          Object.values(item)
-            .filter((v) => typeof v === "string")
-            .some((v) => v.toLowerCase().includes(decoded))
-        );
+    const filteredList =
+      section.list &&
+      section.list.filter((item) =>
+        Object.values(item)
+          .filter((v) => typeof v === "string")
+          .some((v) => v.toLowerCase().includes(decoded))
+      );
 
-      // Если нет совпадений ни в title, ни в list → пропускаем
-      if (!titleMatch && filteredList) return null;
-
-      // Если совпало в title → показываем всю секцию
-      return {
-        title: section.title,
-        link: section.link,
-        list: titleMatch ? section.list : filteredList,
-      };
-    })
-    .filter(Boolean);
+    return {
+      title: titleMatch ? section.title : null,
+      link: section.link,
+      list: filteredList ? filteredList : section.list,
+    };
+  });
 
   console.log(res);
 
@@ -50,18 +45,20 @@ const SearchCatalog: FC<Props> = ({ className }) => {
       <div className="blockresult">
         {res.map((section: any, index: number) => (
           <Fragment key={index}>
-            <HashLink
-              to={`/${useLang.lang}${section.link}`}
-              className="resultText section-title"
-            >
-              {section.title}
-            </HashLink>
+            {section.title !== null && (
+              <HashLink
+                to={`/${useLang.lang}${section.hash ? section.hash : section.link}`}
+                className="resultText section-title section-result"
+              >
+                {section.title}
+              </HashLink>
+            )}
 
             {section.list &&
               section.list.map((item: any, subIndex: number) => (
                 <HashLink
                   key={subIndex}
-                  to={`/${useLang.lang}${item.link || section.link}`}
+                  to={`/${useLang.lang}${item.link ? item.link : section.link}`}
                   className="resultText item-text"
                 >
                   {item.name ||

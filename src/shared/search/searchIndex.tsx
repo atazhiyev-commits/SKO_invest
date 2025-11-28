@@ -26,7 +26,6 @@ export const useSearchIndex = () => {
       list: defenseIndex?.list,
     },
     {
-      title: heroIndex.title,
       link: heroIndex?.link,
       list: heroIndex?.list,
     },

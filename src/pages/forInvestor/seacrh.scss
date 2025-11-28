@@ -8,13 +8,18 @@
     flex-direction: column;
     gap: 10px;
 
-    .resultText{
+    .section-result {
+    }
+
+    .resultText {
+      border: 1px solid var(--color-gray);
+      padding: 20px 15px;
       color: var(--color-lightBlue);
       font-weight: 600;
       font-size: 18px;
-      transition: .2s;
+      transition: 0.2s;
 
-      &:hover{
+      &:hover {
         color: var(--color-darkBlue);
       }
     }
