@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { Fragment, type FC } from "react";
 import clsx from "clsx";
 import { useLocation } from "react-router";
 import { useSearchIndex } from "@/shared/search/searchIndex";
@@ -30,7 +30,7 @@ const SearchCatalog: FC<Props> = ({ className }) => {
       <h2 className="title-section searchCatalog__title">Результаты: </h2>
       <div className="blockresult">
         {res && res?.map((item: any, index: number) => (
-          <>
+          <Fragment key={index}>
             <HashLink
               to={`/${useLang.lang}${item?.link}`}
               key={index}
@@ -50,7 +50,7 @@ const SearchCatalog: FC<Props> = ({ className }) => {
                   </HashLink>
                 )
             )}
-          </>
+          </Fragment>
         ))}
       </div>
     </section>
