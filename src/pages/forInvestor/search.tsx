@@ -6,7 +6,7 @@ import type { LayoutType } from "@/types/translateTypes";
 import { useLang } from "@/shared/store/language";
 import { HashLink } from "react-router-hash-link";
 
-import "./Seacrh.scss";
+import "./seacrh.scss";
 
 interface Props {
   className?: string;
