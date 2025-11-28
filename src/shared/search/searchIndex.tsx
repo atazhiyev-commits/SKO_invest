@@ -6,10 +6,11 @@ export const useSearchIndex = () => {
   const newsIndex = t("news", { returnObjects: true }) as LayoutType;
   const helpersIndex = t("helpers", { returnObjects: true }) as LayoutType;
   const defenseIndex = t("defense", { returnObjects: true }) as LayoutType;
+  const heroIndex = t("hero", { returnObjects: true }) as LayoutType;
 
   const SearchIndex = [
     {
-      title: "Новости",
+      title: newsIndex?.title,
       link: newsIndex?.link,
       list: newsIndex?.list,
     },
@@ -22,6 +23,11 @@ export const useSearchIndex = () => {
       title: defenseIndex.title,
       link: defenseIndex?.link,
       list: defenseIndex?.list,
+    },
+    {
+      title: heroIndex.title,
+      link: heroIndex?.link,
+      list: heroIndex?.list,
     },
   ];
 

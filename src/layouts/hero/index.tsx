@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
-import type { headerList } from "./../header/HeaderDown";
+import type { headerList } from "@/layouts/header/HeaderDown";
 
 import Container from "@/components/container/Container";
 import CarouselHero from "@/components/Carousel/CarouselHero";
@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
 
       <Container>
         <div className="hero__content">
-          <h1 className="hero__title">{t("hero.investSKO")}</h1>
+          <h1 className="hero__title">{t("hero.title")}</h1>
 
           <nav className="hero__content-nav">
             <h2 className="title-section">{t("hero.Iwant")}</h2>

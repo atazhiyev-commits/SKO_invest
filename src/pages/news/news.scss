@@ -1,9 +1,13 @@
 .page-news {
-  margin-block: 60px;
+  padding-block: 107px;
   flex: 1;
   color: black;
 
-  &__wrapper{
+  &__content {
+    margin-top: 20px;
+  }
+
+  &__wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;

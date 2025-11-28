@@ -3,30 +3,55 @@ import clsx from "clsx";
 import { useLocation } from "react-router";
 import { useSearchIndex } from "@/shared/search/searchIndex";
 import type { LayoutType } from "@/types/translateTypes";
+import { useLang } from "@/shared/store/language";
+import { HashLink } from "react-router-hash-link";
+
+import "./Seacrh.scss";
 
 interface Props {
   className?: string;
 }
 
 const SearchCatalog: FC<Props> = ({ className }) => {
+  const resIndex = useSearchIndex();
   const searchParams = useLocation().search.split("=")[1];
   const decoded = decodeURIComponent(searchParams);
 
-  const resIndex = useSearchIndex();
+  const res = resIndex.filter((item: any) => {
+    return (
+      item.title.toLowerCase().includes(decoded.toLowerCase())
+    );
+  });
 
-  const titleSection = resIndex.map((item: any, index: number) => item.title);
-  const filteredSection = titleSection.filter((item: any, index: number) =>
-    item.includes(decoded)
-  );
-  
-  console.log(filteredSection);
+  console.log(res);
 
   return (
     <section className={clsx("searchCatalog", className)}>
-      <h2 className="title-section">Результаты: </h2>
-      <p>Поиск слово: {decoded}</p>
+      <h2 className="title-section searchCatalog__title">Результаты: </h2>
       <div className="blockresult">
-        <p>{filteredSection.length !== 0 ? filteredSection : "Ничего не найдено"}</p>
+        {res && res?.map((item: any, index: number) => (
+          <>
+            <HashLink
+              to={`/${useLang.lang}${item?.link}`}
+              key={index}
+              className="resultText"
+            >
+              {item.title}
+            </HashLink>
+            {item?.list !== undefined && item.list.map(
+              (subItem: any, subIndex: number) =>
+                subItem.name.toLowerCase().includes(decoded.toLowerCase()) && (
+                  <HashLink
+                    to={`/${useLang.lang}${subItem?.link}`}
+                    key={subIndex}
+                    className="resultText"
+                  >
+                    {subItem.name}
+                  </HashLink>
+                )
+            )}
+          </>
+        ))}
       </div>
     </section>
   );

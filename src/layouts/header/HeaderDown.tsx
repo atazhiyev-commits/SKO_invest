@@ -20,7 +20,7 @@ const HeaderDown = () => {
     <div className="header__bottom">
       {nameBottom.map((item, index) => (
         <div key={index} className="header__bottom-item_link header-item">
-          <Link to={lang + "/catalog" + item.link} className="link">
+          <Link to={lang + "/catalog" + item.link} state={{name: item.label}} className="link">
             {item.label}
             <ChevronDown className="chevronDown" size={18} />
           </Link>

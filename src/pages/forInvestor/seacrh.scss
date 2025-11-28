@@ -1,0 +1,22 @@
+.searchCatalog {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  .blockresult {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .resultText{
+      color: var(--color-lightBlue);
+      font-weight: 600;
+      font-size: 18px;
+      transition: .2s;
+
+      &:hover{
+        color: var(--color-darkBlue);
+      }
+    }
+  }
+}
