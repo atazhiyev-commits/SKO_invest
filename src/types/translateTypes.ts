@@ -11,7 +11,7 @@ export interface FAQtype {
   list: Array<FAQlist>;
 }
 
-type list = {
+export type list = {
   name: string;
   link: string;
   list: Array<list>;

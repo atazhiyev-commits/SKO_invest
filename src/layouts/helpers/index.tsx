@@ -18,13 +18,12 @@ type helpList = {
 };
 
 const Helper: React.FC<HelperProps> = ({ className }) => {
-  const [infoText, setInfoText] = useState<any>(textHelp[0]);
   const { t } = useTranslation();
-
   const listHelpText = t("helpers.list", {
     returnObjects: true,
   }) as Array<helpList>;
 
+  const [infoText, setInfoText] = useState<any>(listHelpText[0]);
   return (
     <section className={clsx("helper", className)} id="helpers">
       <Container>

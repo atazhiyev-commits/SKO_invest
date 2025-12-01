@@ -187,6 +187,7 @@
       ],
       "search": {
         "label": "Поиск",
+        "result": "Результат",
         "link": "/search"
       }
     },

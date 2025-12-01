@@ -1,11 +1,12 @@
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
-import type { headerList } from "@/layouts/header/HeaderDown";
+import type { list } from "@/types/translateTypes";
 
 import Container from "@/components/container/Container";
 import CarouselHero from "@/components/Carousel/CarouselHero";
 import { ChevronRight } from "lucide-react";
+import { useLang } from "@/shared/store/language";
 
 import { images } from "./backgroundImages";
 
@@ -17,7 +18,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ className }) => {
   const { t } = useTranslation();
-  const listHero = t("hero.list", { returnObjects: true }) as Array<headerList>;
+  const listHero = t("hero.list", { returnObjects: true }) as Array<list>;
 
   return (
     <section className={clsx("hero", className)}>
@@ -40,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
               {listHero.map((item, index: number) => (
                 <li className="item-hero" key={index}>
                   <ChevronRight />
-                  <Link to={"catalog" + item.link}>{item.name}</Link>
+                  <Link to={"/" + useLang.lang + item.link}>{item.name}</Link>
                 </li>
               ))}
             </ul>

@@ -2,6 +2,7 @@ import { Fragment, type FC } from "react";
 import clsx from "clsx";
 import { useLocation } from "react-router";
 import { HashLink } from "react-router-hash-link";
+import { useTranslation } from "react-i18next";
 import { useSearchIndex } from "@/shared/search/searchIndex";
 import { useLang } from "@/shared/store/language";
 
@@ -12,6 +13,12 @@ interface Props {
 }
 
 const SearchCatalog: FC<Props> = ({ className }) => {
+  const { t } = useTranslation();
+
+  const seacrh = t("header.search", {
+    returnObjects: true,
+  }) as { label: string; link: string };
+
   const resIndex = useSearchIndex();
 
   const searchParams = useLocation().search.split("=")[1];
@@ -42,19 +49,17 @@ const SearchCatalog: FC<Props> = ({ className }) => {
       };
     });
 
-  const q = clear(decoded);
-
   const cataloglist =
     resIndex
       .find((i: any) => i.title === "catalog")
       ?.list.flatMap((first: any) => {
-        const firstMatch = clear(first.label).includes(q);
+        const firstMatch = clear(first.label).includes(decoded);
 
         const seconds = first.list.flatMap((second: any) => {
-          const secondMatch = clear(second.name).includes(q);
+          const secondMatch = clear(second.name).includes(decoded);
 
           const thirds = second.list?.filter((t: any) =>
-            clear(t.name).includes(q)
+            clear(t.name).includes(decoded)
           );
 
           if (secondMatch)
@@ -80,7 +85,7 @@ const SearchCatalog: FC<Props> = ({ className }) => {
 
   return (
     <section className={clsx("searchCatalog", className)}>
-      <h2 className="title-section searchCatalog__title">Результаты: </h2>
+      <h2 className="title-section searchCatalog__title">{seacrh.result}: </h2>
       <div className="blockresult">
         {cataloglist.flatMap((item: any, index: number) => (
           <Fragment key={index}>

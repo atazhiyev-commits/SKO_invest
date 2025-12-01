@@ -190,11 +190,16 @@
             { "name": "Success stories", "link": "/success-stories" }
           ]
         }
-      ]
+      ],
+      "search": {
+        "label": "Search",
+        "result": "results",
+        "link": "/search"
+      }
     },
 
     "hero": {
-      "investSKO": "INVEST IN THE NORTH KAZAKHSTAN REGION",
+      "title": "INVEST IN THE NORTH KAZAKHSTAN REGION",
       "Iwant": "I WANT TO",
       "list": [
         {
@@ -295,6 +300,10 @@
         "homephone": "For home",
         "phone": "For mobile",
         "email": "Mail"
+      },
+      "bottom": {
+        "corruption": "Anti-corruption",
+        "development": "Developed by"
       }
     },
     "PageNews": { "title": "All news" },
