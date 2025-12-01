@@ -5,7 +5,6 @@ import { Info } from "lucide-react";
 import Container from "@/components/container/Container";
 import BlockHelper from "@/components/blockHelper";
 
-import { textHelp } from "./test";
 import "./helpers.scss";
 
 interface HelperProps {
