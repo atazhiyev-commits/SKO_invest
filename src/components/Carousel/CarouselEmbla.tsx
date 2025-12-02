@@ -7,17 +7,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import BigImg from "../../components/newsCard/BigImg";
 
 import "./carouselEmbla.scss";
+import type { NewsItem } from "@/types/api_news_types";
+import { API_URL } from "@/api/connect";
 
 interface Props {
   newsList: any;
   countNews: number;
   className?: string;
-}
-
-interface NewsItem {
-  title: string;
-  date: string;
-  imageSrc: string;
 }
 
 const CarouselEmbla: FC<Props> = ({ newsList, countNews, className }) => {
@@ -38,12 +34,12 @@ const CarouselEmbla: FC<Props> = ({ newsList, countNews, className }) => {
           .slice(0, countNews)
           .map((newsItem: NewsItem, index: number) => (
             <div className="embla__slide" key={index}>
-              <Link to={"/link"}>
+              <Link to={`news/${newsItem.documentId}`}>
                 <BigImg
                   className="news__big"
-                  title={newsItem.title}
-                  date={newsItem.date}
-                  imageSrc={newsItem.imageSrc}
+                  title={newsItem.title_news}
+                  date={newsItem.date_news}
+                  imageSrc={API_URL + newsItem.first_image.url}
                 />
               </Link>
             </div>

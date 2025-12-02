@@ -32,6 +32,7 @@ const App = () => {
   if (!location) return <Navigate to={useLang.lang} replace />;
   if (!languageList.includes(location)) return <ErrorPage />;
 
+
   return (
     <div className="app">
       <ScrollToTop />

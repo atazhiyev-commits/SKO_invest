@@ -4,13 +4,15 @@ import "./newsCard.scss";
 import { Link } from "react-router";
 
 interface PageNewsCardProps {
+  id: number;
   title: string;
   date: string;
-  imageSrc: string;
+  imageSrc?: string;
   className?: string;
 }
 
 const PageNewsCard: React.FC<PageNewsCardProps> = ({
+  id,
   title,
   date,
   imageSrc,
@@ -18,7 +20,7 @@ const PageNewsCard: React.FC<PageNewsCardProps> = ({
 }) => {
   return (
     <Link
-      to={"/news"}
+      to={`${id}`}
       className={clsx("PageNewsCard", className)}
       data-testid="PageNewsCard"
     >

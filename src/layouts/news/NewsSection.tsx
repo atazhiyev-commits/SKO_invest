@@ -9,14 +9,29 @@ import SmallImg from "@/components/newsCard/SmallImg";
 import { testNews } from "./test";
 
 import "./news.scss";
+import { useEffect, useState } from "react";
+import { getNews } from "@/api/connect";
+import type { NewsItem } from "@/types/api_news_types";
+import i18n from "@/shared/config/i18n/i18n";
 
 interface NewsProps {
   className?: string;
 }
 
 const NewsSection: React.FC<NewsProps> = ({ className }) => {
+  const [listNews, setListNews] = useState<NewsItem[]>([]);
+
   const { t } = useTranslation();
-  const countNews = 3;
+  const countNews = 4;
+
+  useEffect(() => {
+    const connect_api = async () => {
+      const res = await getNews(i18n.language).then((res) => res.data);
+      setListNews(res);
+    };
+
+    connect_api();
+  }, []);
 
   return (
     <section className={clsx("news", className)}>
@@ -29,21 +44,30 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
         </header>
 
         <div className="news__content">
-          <CarouselEmbla newsList={testNews} countNews={countNews} />
+          <CarouselEmbla newsList={listNews} countNews={countNews} />
 
           <div className="news__other">
             <h2 className="second-title-section"> {t("news.otherNews")}: </h2>
             <div className="news__other-content">
-              {testNews.slice(countNews).map((newsItem, index) => (
-                <Link to={"/link"} key={index} className="news__small-wrapper">
-                  <SmallImg
-                    className="news__small"
-                    title={newsItem.title}
-                    date={newsItem.date}
-                    imageSrc={newsItem.imageSrc}
-                  />
-                </Link>
-              ))}
+              {listNews.slice(countNews, listNews.length).map((newsItem, index) => {
+                if (index >= countNews) return null;
+                return (
+                  <Link
+                    to={`news/${newsItem.documentId}`}
+                    key={index}
+                    className="news__small-wrapper"
+                  >
+                    <SmallImg
+                      className="news__small"
+                      title={newsItem.title_news}
+                      date={newsItem.date_news}
+                      imageSrc={
+                        import.meta.env.VITE_API_URL + newsItem.first_image.url
+                      }
+                    />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
