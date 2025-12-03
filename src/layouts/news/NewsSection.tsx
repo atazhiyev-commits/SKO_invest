@@ -1,18 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import clsx from "clsx";
-import { useTranslation } from "react-i18next";
-
-import CarouselEmbla from "@/components/Carousel/CarouselEmbla";
-import Container from "@/components/container/Container";
-import SmallImg from "@/components/newsCard/SmallImg";
-
-import { testNews } from "./test";
-
-import "./news.scss";
-import { useEffect, useState } from "react";
+import i18n from "@/shared/config/i18n/i18n";
 import { getNews } from "@/api/connect";
 import type { NewsItem } from "@/types/api_news_types";
-import i18n from "@/shared/config/i18n/i18n";
+import { useTranslation } from "react-i18next";
+
+import Container from "@/components/container/Container";
+import CarouselEmbla from "@/components/Carousel/CarouselEmbla";
+import SmallImg from "@/components/newsCard/SmallImg";
+
+import "./news.scss";
 
 interface NewsProps {
   className?: string;
@@ -63,7 +61,7 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
                         className="news__small"
                         title={newsItem.title_news}
                         date={newsItem.date_news}
-                        imageSrc={newsItem.first_image.url}
+                        imageSrc={newsItem.first_image?.url}
                       />
                     </Link>
                   );

@@ -259,6 +259,9 @@
 
     "faq": {
       "title": "FAQ",
+      "link": "/catalog/investor-guide/faq",
+      "forInvestors": "FAQ",
+
       "list": [
         {
           "question": "What is the basis for obtaining a petition to issue an investor visa?",

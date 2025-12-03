@@ -39,7 +39,7 @@ const AccordionFAQ: FC<FAQProps> = ({ question, answer, className }) => {
         <Typography className="question">{question}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography className="answer">{answer}</Typography>
+        <Typography className="answer"><strong>{answer}</strong></Typography>
       </AccordionDetails>
     </Accordion>
   );

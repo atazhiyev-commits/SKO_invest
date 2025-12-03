@@ -9,6 +9,7 @@ import RegulatoryLegalActs from "./Regulatory legal acts";
 import LandPlot from "./LandPlot";
 import Anylink from "./Anylink";
 import SearchCatalog from "./search";
+import FAQpage from "./FAQpage";
 
 import "./forinvestor.scss";
 
@@ -45,6 +46,10 @@ export const CatalogContent = [
   {
     link: "search",
     element: SearchCatalog,
+  },
+  {
+    link: "faq",
+    element: FAQpage,
   },
   {
     link: "",

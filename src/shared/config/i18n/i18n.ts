@@ -23,7 +23,7 @@ i18n
       escapeValue: false,
     },
     detection: {
-      order: ["path", "cookie", "localStorage"],
+      order: ["path"],
       lookupFromPathIndex: 1,
     },
     resources,

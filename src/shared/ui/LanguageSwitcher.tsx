@@ -23,8 +23,8 @@ const LanguageSwitcher: FC<Props> = ({ className }) => {
       onChange={(e) => {
         const newUrl = `/${e.target.value}/${restPath}`;
 
-        navigate(newUrl);
         i18n.changeLanguage(e.target.value);
+        navigate(newUrl, { replace: true });
         window.location.reload();
       }}
     >

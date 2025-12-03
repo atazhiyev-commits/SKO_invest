@@ -3,7 +3,7 @@ import clsx from "clsx";
 interface SmallCardProps {
   title: string;
   date: string;
-  imageSrc: string;
+  imageSrc?: string;
   className?: string;
 }
 

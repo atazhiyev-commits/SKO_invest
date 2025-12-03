@@ -12,7 +12,6 @@ import ErrorPage from "@/layouts/error/ErrorPage";
 import { languageList } from "@/shared/config/i18n/listLang";
 
 import "@/styles/App.scss";
-import { getWeb } from "@/api/connect";
 
 const App = () => {
   const a11yMode = useA11yStore((s: any) => s.a11yMode);
@@ -33,18 +32,12 @@ const App = () => {
   if (!location) return <Navigate to={useLang.lang} replace />;
   if (!languageList.includes(location)) return <ErrorPage />;
 
-
   return (
     <div className="app">
       <ScrollToTop />
       <Header />
       <main className="main">
         <Routes>
-          <Route
-            path="/sko_invest/"
-            element={<Navigate to={`/ru`} replace />}
-          />
-
           {routeList.map((route, index) => (
             <Route key={index} path={route.path} element={<route.element />} />
           ))}
