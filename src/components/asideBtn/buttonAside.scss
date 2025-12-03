@@ -59,6 +59,10 @@
       .item-header {
         padding: 12px 22px;
 
+        &[data-color="true"] {
+          color: var(--color-lightBlue);
+        }
+
         cursor: pointer;
         display: flex;
         justify-content: space-between;

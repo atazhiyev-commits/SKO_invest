@@ -17,7 +17,7 @@ const SearchCatalog: FC<Props> = ({ className }) => {
 
   const seacrh = t("header.search", {
     returnObjects: true,
-  }) as { label: string; link: string };
+  }) as { label: string; link: string; result: string };
 
   const resIndex = useSearchIndex();
 
@@ -86,6 +86,16 @@ const SearchCatalog: FC<Props> = ({ className }) => {
   return (
     <section className={clsx("searchCatalog", className)}>
       <h2 className="title-section searchCatalog__title">{seacrh.result}: </h2>
+      <form action="">
+        <input
+          type="search"
+          className="searchCatalog"
+          name="q"
+          id="searchCatalog"
+          placeholder={t("header.search.label")}
+        />
+      </form>
+
       <div className="blockresult">
         {cataloglist.flatMap((item: any, index: number) => (
           <Fragment key={index}>

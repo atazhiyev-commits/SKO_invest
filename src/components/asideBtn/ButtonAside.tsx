@@ -84,7 +84,8 @@ const ButtonAside: FC<Props> = ({ name, list, activeLink, className }) => {
               <Link
                 state={{ name: item.name }}
                 to={`/${lang}/catalog${activeLink}${item.link}`}
-                className="item-header"
+                className={clsx("item-header")}
+                data-color={secondActive === clean(item.link)}
                 onClick={() => {
                   toggleSecondLevel(clean(item.link));
                 }}
