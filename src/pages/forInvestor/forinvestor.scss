@@ -19,6 +19,18 @@
   }
 }
 
+.bank-page {
+  li {
+    margin-top: 20px;
+  }
+  p {
+    margin-top: 10px;
+  }
+  h2, h3{
+    margin-top: 20px;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .titleInvest {
     font-size: 18px;
