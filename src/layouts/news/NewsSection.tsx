@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router";
-import { getNews } from "@/api/connect";
 import { useTranslation } from "react-i18next";
-import i18n from "@/shared/config/i18n/i18n";
+import { useGetNews } from "@/shared/store/newsCatalog";
 import type { NewsItem } from "@/types/api_news_types";
 import clsx from "clsx";
 
@@ -18,20 +17,15 @@ interface NewsProps {
 
 const NewsSection: React.FC<NewsProps> = ({ className }) => {
   const { t } = useTranslation();
-  const [listNews, setListNews] = useState<NewsItem[]>([]);
+  const { news, fetchNews } = useGetNews();
 
   const countNews = 4;
 
   useEffect(() => {
-    const connect_api = async () => {
-      const res = await getNews(i18n.language).then((res) => res.data);
-      setListNews(res);
-    };
+    fetchNews();
+  }, [fetchNews]);
 
-    connect_api();
-  }, []);
-
-  return (
+  return news.data && (
     <section className={clsx("news", className)}>
       <Container>
         <header className="news__header">
@@ -42,14 +36,14 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
         </header>
 
         <div className="news__content">
-          <CarouselEmbla newsList={listNews} countNews={countNews} />
+          <CarouselEmbla newsList={news.data} countNews={countNews} />
 
           <div className="news__other">
             <h2 className="second-title-section"> {t("news.otherNews")}: </h2>
             <div className="news__other-content">
-              {listNews
-                .slice(countNews, listNews.length)
-                .map((newsItem, index) => {
+              {news.data
+                .slice(countNews, news.length)
+                .map((newsItem: NewsItem, index: number) => {
                   if (index >= countNews) return null;
                   return (
                     <Link

@@ -1,5 +1,4 @@
 import axios from "axios";
-
 export const API_URL = import.meta.env.VITE_API_URL;
 
 const api = axios.create({
@@ -10,6 +9,7 @@ const api = axios.create({
 });
 
 export const getNews = async (locale: string) => {
+  console.log("api");
   const res = await api.get(`/muchnews?locale=${locale}&populate=*`);
   return res.data;
 };
