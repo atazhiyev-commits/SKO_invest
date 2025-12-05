@@ -22,7 +22,7 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
   const countNews = 4;
 
   useEffect(() => {
-    console.log(news.meta.pagination);
+    console.log(news.meta);
     fetchNews();
   }, [fetchNews]);
 
