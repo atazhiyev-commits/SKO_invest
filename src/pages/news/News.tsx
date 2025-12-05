@@ -1,46 +1,88 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate, useParams } from "react-router";
 import useGetNews from "@/shared/store/newsCatalog";
 import type { storeType } from "@/types/api_news_types";
+import { lang } from "@/shared/store/lg";
 import clsx from "clsx";
 
 import Container from "@/components/container/Container";
 import PageNewsCard from "@/components/newsCard/PageNewsCard";
+import Pagination from "@mui/material/Pagination";
+import ErrorPage from "@/layouts/error/ErrorPage";
+import NewsSkeleton from "@/components/Skeleton/newsSkeleton";
 
 import "./news.scss";
 
 const News = () => {
   const { t } = useTranslation();
+  const [isLoading, setIsLoading] = useState(true);
   const { news, fetchNews } = useGetNews() as storeType;
+  const countPage = news?.meta?.pagination?.pageCount;
+  const navigate = useNavigate();
 
+  const activePage = Number(useParams().page);
 
   useEffect(() => {
-    fetchNews();
-  }, [fetchNews]);
+    if (activePage < 1) navigate(`/${lang}/news/1`);
+    const loadData = async () => {
+      setIsLoading(true);
+      try {
+        await fetchNews(activePage);
+      } catch (error) {
+        console.error("Ошибка при загрузке новостей", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+  }, [fetchNews, activePage]);
 
   return (
-    news.data && (
-      <section className={clsx("page-news")}>
-        <Container>
-          <div className="page-news__content">
-            <h2 className="title-section">{t("PageNews.title")}</h2>
-            <div className="page-news__wrapper">
-              {news.data.map((item: any) => (
-                <div key={item.documentId}>
-                  <PageNewsCard
-                    key={item.documentId}
-                    id={item.documentId}
-                    title={item.title_news}
-                    date={item.date_news}
-                    imageSrc={item.first_image.url}
+    <section className={clsx("page-news")}>
+      <Container>
+        {isLoading ? (
+          <NewsSkeleton />
+        ) : (
+          <>
+            {news?.data && news.data.length > 0 ? (
+              <div className="page-news__content">
+                <h2 className="title-section">{t("PageNews.title")}</h2>
+                <div className="page-news__wrapper">
+                  {news.data.map((item: any) => (
+                    <div key={item.documentId}>
+                      <PageNewsCard
+                        id={item.documentId}
+                        title={item.title_news}
+                        date={item.date_news}
+                        imageSrc={item.first_image.url}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="pagination-content">
+                  <Link to={`/${lang}/news/1`} className="btn-section">
+                    1
+                  </Link>
+                  <Pagination
+                    shape="rounded"
+                    count={countPage}
+                    page={activePage}
+                    onChange={(e, page) => navigate(`/${lang}/news/${page}`)}
+                    onClick={() => window.location.reload()}
                   />
                 </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-    )
+              </div>
+            ) : (
+              <div className="not-found-state">
+                <ErrorPage />
+              </div>
+            )}
+          </>
+        )}
+      </Container>
+    </section>
   );
 };
 

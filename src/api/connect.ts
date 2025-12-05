@@ -8,9 +8,11 @@ const api = axios.create({
   },
 });
 
-export const getNews = async (locale: string) => {
-  console.log("api");
-  const res = await api.get(`/muchnews?locale=${locale}&populate=*&pagination[page]=${2}&pagination[pageSize]=${9}`);
+export const getNews = async (locale: string, totalPage: number) => {
+  const res = await api.get(
+    `/muchnews?locale=${locale}&populate=*&pagination[page]=${totalPage}&pagination[pageSize]=${9}`
+  );
+  console.log(res)
   return res.data;
 };
 

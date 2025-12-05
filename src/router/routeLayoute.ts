@@ -10,7 +10,7 @@ export const routeList = [
     element: Layouts,
   },
   {
-    path: "/:lang/news",
+    path: "/:lang/news/:page",
     element: News,
   },
     {

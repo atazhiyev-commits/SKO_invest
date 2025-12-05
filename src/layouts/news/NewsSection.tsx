@@ -22,8 +22,7 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
   const countNews = 4;
 
   useEffect(() => {
-    console.log(news.meta);
-    fetchNews();
+    fetchNews(1);
   }, [fetchNews]);
 
   return (
@@ -32,7 +31,7 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
         <Container>
           <header className="news__header">
             <h2 className="title-section">{t("news.title")}</h2>
-            <Link to={"news"} className="btn-section">
+            <Link to={"news/1"} className="btn-section">
               {t("news.button")}
             </Link>
           </header>

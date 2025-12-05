@@ -4,17 +4,12 @@ import { lang } from "./lg";
 
 export const useGetNews = create((set, get: any) => ({
   news: [],
-  fitst_page: [],
+  first_page: [],
 
-  fetchNews: async () => {
-    const { news, fitst_page } = get();
+  fetchNews: async (totlaPage: number) => {
+    const { news } = get();
 
-    const response = news.length !== 0 ? news : await getNews(lang);
-    set({ news: response });
-  },
-
-  forceRefresh: async () => {
-    const response = await getNews(lang);
+    const response = news.length !== 0 ? news : await getNews(lang, totlaPage);
     set({ news: response });
   },
 }));
