@@ -1,6 +1,5 @@
-@import "normalize.css";
-@import "./fonts.scss";
-@import "./variable.scss";
+@use "@/styles/fonts" as *;
+@use "@/styles/variable" as *;
 
 * {
   margin: 0;

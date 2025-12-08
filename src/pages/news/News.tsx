@@ -70,7 +70,7 @@ const News = () => {
                     shape="rounded"
                     count={countPage}
                     page={activePage}
-                    onChange={(e, page) => navigate(`/${lang}/news/${page}`)}
+                    onChange={(_, page) => navigate(`/${lang}/news/${page}`)}
                   />
                 </div>
               </div>

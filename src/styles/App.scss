@@ -1,4 +1,4 @@
-@import "./global.scss";
+@use "@/styles/global" as *;
 
 .app {
   min-height: 100vh;
