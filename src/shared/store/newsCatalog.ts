@@ -2,15 +2,26 @@ import { create } from "zustand";
 import { getNews } from "@/api/connect";
 import { lang } from "./lg";
 
-export const useGetNews = create((set, get: any) => ({
+export const useGetNews = create((set, get) => ({
   news: [],
-  first_page: [],
+  cache: {},
 
-  fetchNews: async (totlaPage: number) => {
-    const { news } = get();
+  fetchNews: async (totalPage: number) => {
+    const { cache } = get() as any;
 
-    const response = news.length !== 0 ? news : await getNews(lang, totlaPage);
-    set({ news: response });
+    if (cache[totalPage]) {
+      set({ news: cache[totalPage] });
+      return;
+    }
+
+    const response = await getNews(lang, totalPage);
+    set((state: any) => ({
+      news: response,
+      cache: {
+        ...state.cache,
+        [totalPage]: response,
+      },
+    }));
   },
 }));
 

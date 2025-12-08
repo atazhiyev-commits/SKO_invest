@@ -2,12 +2,14 @@ import { Link } from "react-router";
 import clsx from "clsx";
 
 import "./newsCard.scss";
+import { lang } from "@/shared/store/lg";
 
 interface PageNewsCardProps {
   id: number;
   title: string;
   date: string;
   imageSrc?: string;
+  pathname: string;
   className?: string;
 }
 
@@ -20,7 +22,7 @@ const PageNewsCard: React.FC<PageNewsCardProps> = ({
 }) => {
   return (
     <Link
-      to={`${id}`}
+      to={`/${lang}/news/item/${id}`}
       className={clsx("PageNewsCard", className)}
       data-testid="PageNewsCard"
     >

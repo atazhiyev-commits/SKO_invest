@@ -15,6 +15,7 @@ type first_image = {
 export interface storeType {
   news: data;
   fetchNews: (totalPage: number) => void;
+  firstNews: () => void;
 }
 
 type data = {

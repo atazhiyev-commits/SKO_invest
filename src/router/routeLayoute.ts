@@ -14,7 +14,7 @@ export const routeList = [
     element: News,
   },
     {
-    path: "/:lang/news/:id",
+    path: "/:lang/news/item/:id",
     element: PageNews,
   },
   {

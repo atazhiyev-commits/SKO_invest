@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useGetNews from "@/shared/store/newsCatalog";
 import type { storeType } from "@/types/api_news_types";
 import { lang } from "@/shared/store/lg";
@@ -24,7 +24,7 @@ const News = () => {
   const activePage = Number(useParams().page);
 
   useEffect(() => {
-    if (activePage < 1) navigate(`/${lang}/news/1`);
+    if (activePage < 1) return navigate(`/${lang}/news/1`);
     const loadData = async () => {
       setIsLoading(true);
       try {
@@ -62,15 +62,11 @@ const News = () => {
                   ))}
                 </div>
                 <div className="pagination-content">
-                  <Link to={`/${lang}/news/1`} className="btn-section">
-                    1
-                  </Link>
                   <Pagination
                     shape="rounded"
                     count={countPage}
                     page={activePage}
                     onChange={(e, page) => navigate(`/${lang}/news/${page}`)}
-                    onClick={() => window.location.reload()}
                   />
                 </div>
               </div>

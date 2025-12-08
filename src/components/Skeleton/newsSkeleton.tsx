@@ -11,48 +11,18 @@ interface Props {
 
 const NewsSkeleton: FC<Props> = ({ children, className }) => {
   return (
-    <section className={clsx("news_skeletion", className)}>
-      <div className="card_news">
-        <Skeleton
-          variant="rectangular"
-          className="img"
-          width={375}
-          height={200}
-        />
-        <Skeleton
-          variant="rectangular"
-          className="img"
-          width={375}
-          height={60}
-        />
+    <section className={clsx("news_skeleton", className)}>
+      <div className="skeletonCard_news">
+        <Skeleton variant="rectangular" className="img" />
+        <Skeleton variant="rectangular" className="text" />
       </div>
-      <div className="card_news">
-        <Skeleton
-          variant="rectangular"
-          className="img"
-          width={375}
-          height={200}
-        />
-        <Skeleton
-          variant="rectangular"
-          className="img"
-          width={375}
-          height={60}
-        />
+      <div className="skeletonCard_news">
+        <Skeleton variant="rectangular" className="img" />
+        <Skeleton variant="rectangular" className="text" />
       </div>
-      <div className="card_news">
-        <Skeleton
-          variant="rectangular"
-          className="img"
-          width={375}
-          height={200}
-        />
-        <Skeleton
-          variant="rectangular"
-          className="img"
-          width={375}
-          height={60}
-        />
+      <div className="skeletonCard_news">
+        <Skeleton variant="rectangular" className="img" />
+        <Skeleton variant="rectangular" className="text" />
       </div>
 
       {children}

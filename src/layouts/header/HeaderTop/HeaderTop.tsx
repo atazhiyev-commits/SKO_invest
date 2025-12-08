@@ -11,9 +11,9 @@ import SideMenu from "@/components/sideMenu";
 
 import { Eye, Menu } from "lucide-react";
 import logo from "@/assets/images/logo/logo.svg";
+import SocMedia from "@/sections/socMedia";
 
 import "./../header.scss";
-import SocMedia from "@/sections/socMedia";
 
 const HeaderTop = () => {
   const [toggled, setToggled] = useState(false);
@@ -35,7 +35,6 @@ const HeaderTop = () => {
         </form>
       </div>
       <HeaderMenu link={lang} />
-      <SocMedia />
 
       <nav className="header__nav">
         <button
@@ -44,6 +43,7 @@ const HeaderTop = () => {
         >
           <Menu className="burger" size={32} />
         </button>
+        <SocMedia className="header__nav-socMedia" />
 
         <ul className="header__nav-global_setting">
           <button className="eyes" onClick={toggle}>
