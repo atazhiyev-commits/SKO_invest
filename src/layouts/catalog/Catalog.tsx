@@ -38,7 +38,10 @@ const Catalog = () => {
       <div className="catalog__head">
         <Container className="catalog__head-container">
           <h2 className="title-section catalog__head-title">
-            {state?.name || lastPart === "search" ? "Поиск" : "Каталог"}
+            {console.log(state?.name)}
+            {lastPart === "search"
+              ? t("header.search.label")
+              : state?.name || "Каталог"}
           </h2>
         </Container>
       </div>
