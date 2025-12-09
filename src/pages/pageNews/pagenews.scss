@@ -3,7 +3,6 @@
   padding-block: 50px;
 
   .pageContainer {
-    
   }
 
   &__header {
@@ -16,6 +15,7 @@
     }
 
     &-date {
+      display: inline-block;
       font-size: 16px;
       font-weight: 600;
       color: var(--color-lightBlue);
@@ -41,7 +41,7 @@
       margin-bottom: 16px;
       text-align: justify;
 
-      img{
+      img {
         width: 100%;
       }
     }
@@ -52,8 +52,15 @@
       font-weight: 500;
     }
 
-    li {
-      list-style-type: decimal;
+    ul {
+      margin-bottom: 20px;
+
+      li {
+        margin: 0 16px;
+        margin-top: 10px;
+        text-align: justify;
+        list-style-type: decimal;
+      }
     }
 
     blockquote {

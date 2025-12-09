@@ -54,7 +54,7 @@ const NewsSection: React.FC<NewsProps> = ({ className }) => {
                       if (index >= countNews) return null;
                       return (
                         <Link
-                          to={`news/${newsItem.documentId}`}
+                          to={`news/item/${newsItem.documentId}`}
                           key={index}
                           className="news__small-wrapper"
                         >

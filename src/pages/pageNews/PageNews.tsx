@@ -5,6 +5,7 @@ import { getIdNews } from "@/api/connect";
 import i18n from "@/shared/config/i18n/i18n";
 import type { NewsItem } from "@/types/api_news_types";
 import Container from "@/components/container/Container";
+import PageNewsSkeleton from "@/components/Skeleton/pageNewsSkeleton";
 
 import "./pagenews.scss";
 
@@ -23,10 +24,10 @@ const PageNews = () => {
     connect_api();
   }, []);
 
-  return (
-    pageNews && (
-      <section className="pageNews">
-        <Container className="pageContainer">
+  return pageNews ? (
+    <section className="pageNews">
+      <Container className="pageContainer">
+        <>
           <header className="pageNews__header">
             <h2 className="pageNews__header-title">{pageNews.title_news}</h2>
             <p className="pageNews__header-date">{pageNews.date_news}</p>
@@ -37,9 +38,15 @@ const PageNews = () => {
           <div className="markdown-container">
             <ReactMarkdown>{pageNews.description}</ReactMarkdown>
           </div>
-        </Container>
-      </section>
-    )
+        </>
+      </Container>
+    </section>
+  ) : (
+    <section className="pageNews">
+      <Container className="pageContainer">
+        <PageNewsSkeleton />
+      </Container>
+    </section>
   );
 };
 
